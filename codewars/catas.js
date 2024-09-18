@@ -1,12 +1,15 @@
 // Task 1
+//https://www.codewars.com/kata/find-the-smallest-integer-in-the-array/train/javascript
 
 const findSmallestInt = (arr) => Math.min(...arr);
 
 // Task 2
+// https://www.codewars.com/kata/geometry-basics-circle-circumference-in-2d/train/javascript
 
 const circleCircumference = (circle) => 2 * Math.PI * circle.radius;
 
 // Task 3
+//https://www.codewars.com/kata/training-js-number-12-loop-statement-for-dot-in-and-for-dot-of/train/javascript
 
 function giveMeFive(obj) {
   const arr = [];
@@ -20,6 +23,7 @@ function giveMeFive(obj) {
 }
 
 // Task 4
+// https://www.codewars.com/kata/fun-with-es6-classes-number-2-animals-and-inheritance/train/javascript
 
 class Animal {
   constructor(name, age, legs, species, status) {
@@ -63,6 +67,7 @@ class Dog extends Animal {
 }
 
 // Task 5
+// https://www.codewars.com/kata/understanding-closures-the-basics/train/javascript
 
 function buildFun(n) {
   let res = [];
@@ -77,6 +82,7 @@ function buildFun(n) {
 }
 
 // Task 6
+// https://www.codewars.com/kata/587593285448632b8d000143/
 
 async function submitOrder(user) {
   const shoppingCart = await OrderAPI.getShoppingCartAsync(user);
