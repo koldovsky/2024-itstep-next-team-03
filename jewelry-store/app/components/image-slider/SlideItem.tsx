@@ -15,7 +15,7 @@ const SlideItem: React.FC<SlideItemProps> = ({ title, imageUrl }) => (
                 layout="responsive"
                 width={400}
                 height={400}
-                className="transition duration-500 ease-in-out transform group-hover:scale-110 brightness-50 group-hover:brightness-100"
+                className="transition duration-500 ease-in-out transform group-hover:scale-110 brightness-75 group-hover:brightness-100"
             />
             <figcaption
                 className="absolute inset-0 flex items-center justify-center">

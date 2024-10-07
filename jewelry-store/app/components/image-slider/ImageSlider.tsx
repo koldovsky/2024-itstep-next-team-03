@@ -13,13 +13,13 @@ interface SlideData {
 }
 
 const slides: SlideData[] = [
-    { title: 'Новинки', imageUrl: '/test.jpg' },
-    { title: 'Каблучки', imageUrl: '/test.jpg' },
-    { title: 'Сережки', imageUrl: '/test.jpg' },
-    { title: 'Для шиї', imageUrl: '/test.jpg' },
-    { title: 'Браслети', imageUrl: '/test.jpg' },
-    { title: 'Анклети', imageUrl: '/test.jpg' },
-    { title: 'Набори', imageUrl: '/test.jpg' },
+    { title: 'Novelty', imageUrl: '/novelty-slider.jpg' },
+    { title: 'Rings', imageUrl: '/rings-slider.jpg' },
+    { title: 'Earrings', imageUrl: '/earrings-slider.jpg' },
+    { title: 'For neck', imageUrl: '/for-neck-slider.jpg' },
+    { title: 'Bracelets', imageUrl: '/bracelets-slider.jpg' },
+    { title: 'Anklets', imageUrl: '/anklets-slider.jpg' },
+    { title: 'Sets', imageUrl: '/sets-slider.jpg' },
 ];
 
 const ImageSlider: React.FC = () => {
