@@ -1,9 +1,11 @@
 const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 4,
+    speed: 900,
+    slidesToShow: 5,
     slidesToScroll: 1,
+    // nextArrow: <CustomArrow direction="right" />,
+    // prevArrow: <CustomArrow direction="left" />,
     responsive: [
         {
             breakpoint: 1024,

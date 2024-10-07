@@ -23,13 +23,13 @@ const slides: SlideData[] = [
 ];
 
 const ImageSlider: React.FC = () => (
-    <div className="w-full p-10">
+    <section className="w-full p-10">
         <Slider {...sliderSettings} className="relative">
             {slides.map((slide, index) => (
                 <SlideItem key={index} title={slide.title} imageUrl={slide.imageUrl} />
             ))}
         </Slider>
-    </div>
+    </section>
 );
 
 export default ImageSlider;
