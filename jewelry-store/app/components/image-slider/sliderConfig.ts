@@ -1,11 +1,9 @@
-const sliderSettings = {
+const sliderConfig = {
     dots: false,
     infinite: true,
     speed: 900,
     slidesToShow: 5,
     slidesToScroll: 1,
-    // nextArrow: <CustomArrow direction="right" />,
-    // prevArrow: <CustomArrow direction="left" />,
     responsive: [
         {
             breakpoint: 1024,
@@ -28,4 +26,4 @@ const sliderSettings = {
     ],
 };
 
-export default sliderSettings;
+export default sliderConfig;
