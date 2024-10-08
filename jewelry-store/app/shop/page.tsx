@@ -1,3 +1,7 @@
-export default function Shop() {
-  return <div>Page shop</div>;
-}
+import React from "react";
+
+const Shop = () => {
+  return <div>Shop page</div>;
+};
+
+export default Shop;
