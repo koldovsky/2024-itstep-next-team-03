@@ -2,14 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  padding: 0;
+:root {
+  --background: #ffffff;
+  --font-clr: #171717;
+  --black-clr: #000000;
 }
 
 * {
-  margin: 0;
+  box-sizing: border-box;
   padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--font-clr);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
