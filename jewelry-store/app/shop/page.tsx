@@ -1,3 +1,10 @@
+import CardsGrid from "../components/CardsGrid/CardsGrid";
+
 export default function Shop() {
-  return <div>Page shop</div>;
+  return (
+    <div>
+      <h1 className="text-2xl font-bold">Shop</h1>
+      <CardsGrid />
+    </div>
+  );
 }
