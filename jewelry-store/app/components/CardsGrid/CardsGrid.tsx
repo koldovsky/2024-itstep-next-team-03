@@ -27,16 +27,18 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="grid justify-center gap-4 grid-rows-auto sm:grid-cols-2 md:grid-cols-3">
       {products.length > 0 ? (
-        products.map((product) => (
-          <ProductCard
-            key={product.id} 
-            title={product.title}
-            price={product.price}
-            image={product.image}
-          />
-        ))
+        products
+          .slice(0, 6)
+          .map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              price={product.price}
+              image={product.image}
+            />
+          ))
       ) : (
         <p>Loading products...</p>
       )}

@@ -12,7 +12,7 @@ import styles from "./NavigationBar.module.css";
 export default function NavigationBar() {
   return (
     <nav
-      className={`${styles.navigation} h-28 fixed w-full left-0 top-0 z-10 bg-white`}
+      className={`${styles.navigation} h-28 fixed w-full left-0 top-0 z-50 bg-white`}
     >
       <div className="container mx-auto px-10 flex justify-between h-28 items-center">
         <div className="flex flex-1 justify-start items-center gap-x-6">
@@ -31,9 +31,9 @@ export default function NavigationBar() {
             +38 (099) 000 00 00
           </Link>
         </div>
-        <div className="flex flex-1 justify-center">
+        <Link href="/" className="flex flex-1 justify-center">
           <Image className="h-16 w-auto" src={logo} alt="Milk jewelry logo" />
-        </div>
+        </Link>
         <div className="flex flex-1 justify-end items-center gap-x-6">
           <Link href="#" className="h-6 w-6">
             <Image src={heart} alt="Instagram" />

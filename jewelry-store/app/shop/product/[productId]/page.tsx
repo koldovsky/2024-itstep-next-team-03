@@ -55,16 +55,16 @@ const Product = ({ params }: { params: { productId: string } }) => {
             <h2 className="text-2xl font-bold mb-4">{productName}</h2>
 
             <p className="text-base text-gray-500 mb-4">
-              Артикул: <span className="font-bold text-black">{article}</span>
+              SKU: <span className="font-bold text-black">{article}</span>
             </p>
 
             <p className="text-base text-gray-500 mb-4">
-              Виробник:{" "}
+              Manufacturer:{" "}
               <span className="font-bold text-black">{manufacturer}</span>
             </p>
 
             <p className="text-2xl text-gray-800 mb-5">
-              {price} {currency} / шт
+              {price} {currency} / pcs
             </p>
 
             {/* Action Buttons */}
@@ -72,7 +72,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
               <ProductCounter />
               <ActionButton
                 className="w-full md:w-fit order-last md:order-none"
-                content="Придбати"
+                content="Buy"
               />
               <Save />
             </div>
@@ -80,7 +80,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
             {/* Characteristics Section */}
             <div className="w-full mb-10">
               <h2 className="text-2xl font-medium text-gray-700 mb-5">
-                Характеристики
+                Characterisctics
               </h2>
               <CharacteristicList attributes={attributes} />
             </div>
@@ -88,7 +88,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
             {/* Description Section */}
             <div>
               <p className="bg-gray-500 text-white px-5 py-2 w-fit font-bold mb-3">
-                Опис
+                Description
               </p>
               <p className="text-gray-500 text-base w-full mb-3">
                 {description}

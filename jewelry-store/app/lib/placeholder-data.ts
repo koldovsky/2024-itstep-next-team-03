@@ -3,25 +3,25 @@ import { ProductItem } from "../types/products";
 export const products: ProductItem[] = [
   {
     id: 1,
-    productName: "Золоті сережки",
+    productName: 'Gold earrings "Congo"',
     category: "earrings",
     article: "12486172205",
     manufacturer: "Gucci",
     price: 9800,
     currency: "₴",
     quantityAvailable: 18,
-    clasps: ["Замок"],
+    clasps: ["Clasp"],
     attributes: [
       {
-        attributeName: "Метал",
-        attributeValue: "Золото Au 585",
+        attributeName: "Metal",
+        attributeValue: "Gold Au 585",
       },
       {
-        attributeName: "Колір металу",
-        attributeValue: "Жовте золото",
+        attributeName: "Metal color",
+        attributeValue: "Yellow gold",
       },
     ],
     description:
-      "Ці елегантні золоті сережки від Gucci створені для тих, хто цінує розкіш та витонченість. Вони виконані з жовтого золота, яке підкреслить вашу жіночність і елегантність. Сережки мають надійний замок, що забезпечує комфортне носіння. Вони підійдуть як для повсякденного носіння, так і для особливих подій. Ідеальний вибір для того, щоб додати нотку шику до вашого образу. Цей аксесуар чудово підходить для подарунка близькій людині.",
+      "A sophisticated accessory in the style of classicism that will complement your image Made of high-quality gold, these earrings have a shiny surface that emphasizes their luxury. The spiral shape adds uniqueness and originality to these rings. They look modern and classic at the same time, so they are ideal for both everyday wear and special events. With a diameter of 50 mm, these earrings clearly emphasize your individuality without being too massive. Thanks to the reliable lock, the earrings are comfortable to wear, and they will not fall out during active pastime.",
   },
 ];
