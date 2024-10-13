@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --font-clr: #171717;
+  --black-clr: #000000;
+  --white-clr: #ffffff;
+  --primary-clr: #f2f1ee;
+  --secondary-clr: #d4b486;
+  --bread-crumbs-clr: #f2f1ee;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--font-clr);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.primary-btn {
+  transition: 0.5s ease;
+  background-color: var(--white-clr);
+  color: var(--black-clr);
+  border: 1px solid var(--black-clr);
+  padding: 15px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.primary-btn:hover {
+  background-color: var(--black-clr);
+  color: var(--white-clr);
+}
+
+.secondary-btn,
+.sort-btn {
+  transition: 0.5s ease;
+  background-color: var(--primary-clr);
+  color: var(--black-clr);
+  border: 0;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  padding: 15px 30px;
+  text-transform: uppercase;
+}
+
+.secondary-btn:hover,
+.sort-btn:hover {
+  background-color: var(--secondary-clr);
+  color: var(--white-clr);
+}
