@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "productName": "Diamond Necklace",
+    "category": "Necklaces",
+    "article": "NK001",
+    "manufacturer": "Luxe Jewels",
+    "price": 1250.00,
+    "currency": "USD",
+    "quantityAvailable": 10,
+    "clasps": "Lobster Clasp",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "18K White Gold"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Diamond"
+      }
+    ],
+    "description": "Elegant diamond necklace set in 18K white gold."
+  },
+  {
+    "id": 2,
+    "productName": "Gold Hoop Earrings",
+    "category": "Earrings",
+    "article": "ER002",
+    "manufacturer": "GoldenTouch",
+    "price": 299.99,
+    "currency": "USD",
+    "quantityAvailable": 25,
+    "clasps": "Hinged Hoop",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "14K Yellow Gold"
+      },
+      {
+        "attributeName": "Diameter",
+        "attributeValue": "2 inches"
+      }
+    ],
+    "description": "Classic 14K yellow gold hoop earrings."
+  },
+  {
+    "id": 3,
+    "productName": "Sapphire Ring",
+    "category": "Rings",
+    "article": "RG003",
+    "manufacturer": "GemMasters",
+    "price": 450.00,
+    "currency": "USD",
+    "quantityAvailable": 15,
+    "clasps": "None",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "Platinum"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Sapphire"
+      }
+    ],
+    "description": "Exquisite platinum ring featuring a sapphire centerpiece."
+  },
+  {
+    "id": 4,
+    "productName": "Pearl Bracelet",
+    "category": "Bracelets",
+    "article": "BR004",
+    "manufacturer": "Ocean Pearls",
+    "price": 350.00,
+    "currency": "USD",
+    "quantityAvailable": 20,
+    "clasps": "Toggle Clasp",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "Sterling Silver"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Cultured Pearl"
+      }
+    ],
+    "description": "Elegant pearl bracelet with sterling silver accents."
+  },
+  {
+    "id": 5,
+    "productName": "Ruby Pendant",
+    "category": "Pendants",
+    "article": "PD005",
+    "manufacturer": "Royal Gems",
+    "price": 600.00,
+    "currency": "USD",
+    "quantityAvailable": 5,
+    "clasps": "Spring Ring Clasp",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "18K Rose Gold"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Ruby"
+      }
+    ],
+    "description": "Stunning ruby pendant in 18K rose gold."
+  },
+  {
+    "id": 6,
+    "productName": "Diamond Stud Earrings",
+    "category": "Earrings",
+    "article": "ER006",
+    "manufacturer": "Luxe Jewels",
+    "price": 750.00,
+    "currency": "USD",
+    "quantityAvailable": 30,
+    "clasps": "Butterfly Backs",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "14K White Gold"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Diamond"
+      }
+    ],
+    "description": "Sparkling diamond stud earrings in 14K white gold."
+  },
+  {
+    "id": 7,
+    "productName": "Emerald Bangle",
+    "category": "Bracelets",
+    "article": "BR007",
+    "manufacturer": "Green Light",
+    "price": 525.00,
+    "currency": "USD",
+    "quantityAvailable": 12,
+    "clasps": "Slip-On",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "Gold Plated"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Emerald"
+      }
+    ],
+    "description": "Gold-plated bangle with embedded emerald stones."
+  },
+  {
+    "id": 8,
+    "productName": "Amethyst Pendant",
+    "category": "Pendants",
+    "article": "PD008",
+    "manufacturer": "Mystic Jewels",
+    "price": 280.00,
+    "currency": "USD",
+    "quantityAvailable": 18,
+    "clasps": "Lobster Clasp",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "Sterling Silver"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Amethyst"
+      }
+    ],
+    "description": "Sterling silver pendant with a brilliant amethyst stone."
+  },
+  {
+    "id": 9,
+    "productName": "Opal Ring",
+    "category": "Rings",
+    "article": "RG009",
+    "manufacturer": "OpalWorld",
+    "price": 400.00,
+    "currency": "USD",
+    "quantityAvailable": 8,
+    "clasps": "None",
+    "attributes": [
+      {
+        "attributeName": "Material",
+        "attributeValue": "Rose Gold"
+      },
+      {
+        "attributeName": "Stone",
+        "attributeValue": "Opal"
+      }
+    ],
+    "description": "Rose gold ring featuring a mesmerizing opal stone."
+  }
+]
