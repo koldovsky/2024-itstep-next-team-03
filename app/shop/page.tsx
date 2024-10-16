@@ -4,11 +4,12 @@ import PageHeading from "../components/page-heading/page-heading";
 import CardsGrid from "../components/cards/cards-grid/cards-grid";
 import Button from "../components/button/button";
 import BreadCrumbsBar from "../components/bread-crumbs-bar/bread-crumbs-bar";
-
+import ShopSidebar from "../components/shop-sidebar/shop-sidebar";
 export default function Shop() {
   return (
-    <div>
+    <div className="w-full">
       <BreadCrumbsBar params={{ url: "/shop" }} />
+
       <div className="flex flex-row justify-between items-center mb-10">
         <PageHeading params={{ content: "Shop" }} />
         <div className="flex flex-row gap-4 items-center">
@@ -23,7 +24,11 @@ export default function Shop() {
           <Image src={sort} alt="Sort button" className="h-6 w-6" />
         </div>
       </div>
-      <CardsGrid />
+
+      <div className="flex w-full items-start gap-5">
+        <ShopSidebar />
+        <CardsGrid />
+      </div>
     </div>
   );
 }
