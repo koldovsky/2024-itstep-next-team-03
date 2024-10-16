@@ -9,7 +9,7 @@ interface InformationBoxProps {
 export default function InformationBox({ imageSrc, tittle }: InformationBoxProps) {
     return (
         <div
-            className="bg-[#F2F1EE] h-72 w-96 overflow-hidden
+            className="bg-[#F2F1EE] h-72 w-full overflow-hidden
             transition-transform duration-700 ease-out hover:-translate-y-2 "
         >
             <div className="w-full">

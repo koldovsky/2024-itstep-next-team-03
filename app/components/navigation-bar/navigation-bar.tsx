@@ -14,7 +14,7 @@ export default function NavigationBar() {
     <nav
       className={`${styles.navigation} h-28 fixed w-full left-0 top-0 z-50 bg-white`}
     >
-      <div className="container mx-auto flex justify-between h-28 items-center">
+      <div className="container mx-auto flex justify-between h-28 items-center px-10 md:px-20">
         <div className="flex flex-1 justify-start items-center gap-x-6">
           <div className="flex items-center gap-x-5">
             <Link href="https://www.instagram.com/" className="h-6 w-6">

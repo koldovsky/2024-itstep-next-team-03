@@ -10,7 +10,7 @@ export default function Blog() {
     <div>
       <BreadCrumbsBar params={{ url: `/blog` }} />
       <PageHeading params={{ content: "Blog" }} />
-        <div className="flex justify-center gap-8 flex-wrap mt-10">
+        <div className="flex flex-row justify-between gap-8 mt-10">
             <ContentBox
                 imageSrc={MostPopularJewelryStones}
                 date="5/15/2024"

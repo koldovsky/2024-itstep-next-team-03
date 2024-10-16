@@ -21,7 +21,7 @@ export default function BreadCrumbsBar({ params }: BreadCrumbsBarProps) {
 
   return (
     <div
-      className={`${styles.breadcrumbs} h-8 fixed w-full left-0 top-28 z-50`}
+      className={`${styles.breadcrumbs} h-8 fixed w-full left-0 top-28 z-50 px-10 md:px-20`}
     >
       <ul className="container mx-auto h-8 flex gap-4 items-center text-xs">
         <li key={0}>
