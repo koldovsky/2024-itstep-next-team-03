@@ -12,7 +12,7 @@ import styles from "./navigation-bar.module.css";
 export default function NavigationBar() {
   return (
     <nav
-      className={`${styles.navigation} h-28 fixed w-full left-0 top-0 z-50 bg-white box-border`}
+      className={`${styles.navigation} h-28 fixed w-full left-0 top-0 z-50 bg-white`}
     >
       <div className="container mx-auto flex justify-between h-28 items-center">
         <div className="flex flex-1 justify-start items-center gap-x-6">
