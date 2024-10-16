@@ -13,13 +13,13 @@ interface SlideData {
 }
 
 const slides: SlideData[] = [
-  { title: "Novelty", imageUrl: "/images/test.jpg" },
-  { title: "Rings", imageUrl: "/images/test.jpg" },
-  { title: "Earrings", imageUrl: "/images/test.jpg" },
-  { title: "For neck", imageUrl: "/images/test.jpg" },
-  { title: "Bracelets", imageUrl: "/images/test.jpg" },
-  { title: "Anklets", imageUrl: "/images/test.jpg" },
-  { title: "Sets", imageUrl: "/images/test.jpg" },
+  { title: 'Novelty', imageUrl: '/images/novelty.jpg' },
+  { title: 'Rings', imageUrl: '/images/rings.jpg' },
+  { title: 'Earrings', imageUrl: '/images/earrings.jpg' },
+  { title: 'For neck', imageUrl: '/images/for-neck.jpg' },
+  { title: 'Bracelets', imageUrl: '/images/bracelets.jpg' },
+  { title: 'Anklets', imageUrl: '/images/anklets.jpg' },
+  { title: 'Sets', imageUrl: '/images/sets.jpg' },
 ];
 
 const ImageSlider: React.FC = () => {
@@ -30,17 +30,13 @@ const ImageSlider: React.FC = () => {
   };
 
   return (
-    <section>
-      <Slider {...sliderConfigWithArrows} className="relative w-full">
-        {slides.map((slide) => (
-          <SlideItem
-            key={slide.title}
-            title={slide.title}
-            imageUrl={slide.imageUrl}
-          />
-        ))}
-      </Slider>
-    </section>
+      <section className="w-full p-5">
+        <Slider {...sliderConfigWithArrows} className="relative">
+          {slides.map((slide) => (
+              <SlideItem key={slide.title} title={slide.title} imageUrl={slide.imageUrl} />
+          ))}
+        </Slider>
+      </section>
   );
 };
 
