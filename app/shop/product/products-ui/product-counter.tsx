@@ -20,8 +20,8 @@ const ProductCounter = () => {
   };
 
   return (
-    <div className="h-full w-fit px-5 border border-gray-300 flex items-center gap-7 font-bold text-black">
-      <button onClick={decrementCount} className="text-2xl">
+    <div className="h-14 w-fit px-5 border border-gray-300 flex items-center gap-7 font-bold text-black">
+      <button onClick={decrementCount} className="text-xl md:text-2xl">
         -
       </button>
 
@@ -31,7 +31,7 @@ const ProductCounter = () => {
         className="w-4 outline-none border-0 text-center"
       />
 
-      <button onClick={incrementCount} className="text-2xl">
+      <button onClick={incrementCount} className="text-xl md:text-2xl">
         +
       </button>
     </div>

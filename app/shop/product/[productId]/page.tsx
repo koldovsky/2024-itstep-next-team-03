@@ -55,9 +55,11 @@ const Product = ({ params }: { params: { productId: string } }) => {
 
             {/* Product Info Container */}
             <div className="py-2 w-full lg:w-1/2 h-[600px] overflow-y-auto custom-scrollbar">
-              <h2 className="text-2xl font-bold mb-4">{productName}</h2>
+              <h2 className=" text-xl md:text-2xl font-bold mb-4">
+                {productName}
+              </h2>
 
-              <p className="text-base text-gray-500 mb-4">
+              <p className="text-sm md:text-base text-gray-500 mb-4">
                 SKU: <span className="font-bold text-black">{article}</span>
               </p>
 
@@ -66,12 +68,12 @@ const Product = ({ params }: { params: { productId: string } }) => {
                 <span className="font-bold text-black">{manufacturer}</span>
               </p>
 
-              <p className="text-2xl text-gray-800 mb-5">
+              <p className="text-xl md:text-2xl text-gray-800 mb-5">
                 {price} {currency} / pcs
               </p>
 
               {/* Action Buttons */}
-              <div className="flex gap-4 items-center mb-4 flex-wrap h-14">
+              <div className="flex gap-4 items-center mb-4 flex-wrap min-h-14">
                 <ProductCounter />
                 <Button
                   params={{
@@ -85,7 +87,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
 
               {/* Characteristics Section */}
               <div className="w-full mb-10">
-                <h2 className="text-2xl font-medium text-gray-700 mb-5">
+                <h2 className="text-xl md:text-2xl font-medium text-gray-700 mb-5">
                   Characterisctics
                 </h2>
                 <CharacteristicList attributes={attributes} />
