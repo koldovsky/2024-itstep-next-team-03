@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./bread-crumbs-bar.module.css";
 
 interface BreadCrumbsBarProps {
   params: {
@@ -20,10 +19,8 @@ export default function BreadCrumbsBar({ params }: BreadCrumbsBarProps) {
     .map((e) => e.charAt(0).toUpperCase() + e.slice(1));
 
   return (
-    <div
-      className={`${styles.breadcrumbs} h-8 fixed w-full left-0 top-28 z-50 px-10 md:px-20`}
-    >
-      <ul className="container mx-auto h-8 flex gap-4 items-center text-xs">
+    <div className="bg-[var(--primary-clr)] h-8 fixed w-full left-0 top-28 z-40">
+      <ul className="container mx-auto h-8 flex gap-4 items-center text-xs px-10 md:px-20">
         <li key={0}>
           <Link href="/" className="text-gray-400 cursor-pointer">
             Home

@@ -1,6 +1,6 @@
 import Button from "../../button/button";
 
-import { CategoryItem } from "./types";
+import { CategoryItem } from "../../../lib/category-item-type";
 
 const CategoryLink = ({ category }: { category: CategoryItem }) => {
   const { categoryName, link } = category;

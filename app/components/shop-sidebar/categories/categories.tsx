@@ -1,5 +1,5 @@
 import CategoryLink from "./category-link";
-import { categories } from "./mocks";
+import { categories } from "../../../lib/category-items";
 
 const Categories = () => {
   return (

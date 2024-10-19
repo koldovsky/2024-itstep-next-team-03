@@ -1,3 +1,43 @@
 .navigation {
   border-bottom: 1px solid rgb(224, 224, 224);
+  transition: margin-left 0.5s ease-in-out;
+}
+
+.burger-icon {
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.line {
+  background-color: var(--black-clr);
+  border-radius: 1px;
+  height: 2px;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.opened-line1 {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.opened-line2 {
+  opacity: 0;
+  transition: none;
+}
+
+.opened-line3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.sidebar {
+  transition: width 0.5s ease-in-out;
+}
+
+.link,
+.header {
+  transition: opacity 0.5s ease-in-out;
 }

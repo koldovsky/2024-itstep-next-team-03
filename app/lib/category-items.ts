@@ -1,4 +1,4 @@
-import { CategoryItem } from "./types";
+import { CategoryItem } from "./category-item-type";
 
 export const categories: CategoryItem[] = [
   { id: 1, categoryName: "New Arrivals", link: "new-arrivals" },
