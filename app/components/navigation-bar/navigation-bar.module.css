@@ -14,7 +14,7 @@
 
 .line {
   background-color: var(--black-clr);
-  border-radius: 1px;
+  border-radius: 2px;
   height: 2px;
   width: 100%;
   transition: all 0.5s ease;

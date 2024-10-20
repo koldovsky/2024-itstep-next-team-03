@@ -30,7 +30,7 @@ const ImageSlider: React.FC = () => {
   };
 
   return (
-      <section className="w-full p-5">
+      <section className="w-full">
         <Slider {...sliderConfigWithArrows} className="relative">
           {slides.map((slide) => (
               <SlideItem key={slide.title} title={slide.title} imageUrl={slide.imageUrl} />

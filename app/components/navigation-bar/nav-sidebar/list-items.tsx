@@ -15,7 +15,7 @@ export default function ListItem({ params }: ListItemProps) {
       key={params.id}
       className={`${params.className} border border-x-0 border-t-0 border-[var(--primary-clr)] p-4 duration-300 hover:bg-[var(--primary-clr)]`}
     >
-      <Link href={`/${params.link}`} className={params.className}>
+      <Link key={params.id} href={`/${params.link}`} className={params.className}>
         {params.linkName}
       </Link>
     </li>

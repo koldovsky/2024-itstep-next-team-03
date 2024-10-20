@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
       <CardsGrid />
       <Button
         params={{
-          content: "To the catalog",
+          content: "To the catalogue",
           url: "/shop",
           className: "primary-btn",
           linkClassName: "mx-auto",
