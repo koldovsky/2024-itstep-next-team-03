@@ -12,10 +12,9 @@ const SlideItem: React.FC<SlideItemProps> = ({ title, imageUrl }) => (
       <Image
           src={imageUrl}
           alt={`Category: ${title}`}
-          layout="responsive"
-          width={400}
           height={400}
-          className="transition duration-500 ease-in-out transform group-hover:scale-110 brightness-[.70] group-hover:brightness-100"
+          width={400}
+          className="w-full transition duration-500 ease-in-out transform group-hover:scale-110 brightness-[.70] group-hover:brightness-100"
       />
       <figcaption className="absolute inset-0 flex items-center justify-center">
         <h3 className="text-white text-2xl font-bold uppercase">{title}</h3>
