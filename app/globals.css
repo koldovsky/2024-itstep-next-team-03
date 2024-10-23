@@ -62,3 +62,26 @@ body {
   background-color: var(--secondary-clr);
   color: var(--white-clr);
 }
+
+
+/* ... existing CSS ... */
+
+.account-layout {
+  display: flex;
+  /* Ensure the layout is flex to allow side-by-side display */
+}
+
+.left-menu {
+  width: 200px;
+  /* Ensure the left menu has a defined width */
+  background-color: var(--primary-clr); /* Optional: Add a background color for visibility */
+  /* Additional styling */
+}
+
+.content {
+  flex-grow: 1;
+  /* Ensure the content area grows to fill the remaining space */
+  /* Additional styling */
+}
+
+/* ... existing CSS ... */
