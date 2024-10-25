@@ -19,7 +19,8 @@
         "attributeValue": "Diamond"
       }
     ],
-    "description": "Elegant diamond necklace set in 18K white gold."
+    "description": "Elegant diamond necklace set in 18K white gold.",
+    "imageUrl": "https://i.ebayimg.com/images/g/-0QAAOSwz6BhDx3e/s-l1200.jpg"
   },
   {
     "id": 2,
@@ -41,7 +42,8 @@
         "attributeValue": "2 inches"
       }
     ],
-    "description": "Classic 14K yellow gold hoop earrings."
+    "description": "Classic 14K yellow gold hoop earrings.",
+    "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fishhaara.com%2Fproducts%2Fgold-plated-contemporary-half-hoop-earrings&psig=AOvVaw27pnte3BLUewpCGLj0y0l-&ust=1729961309618000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNiyhJ7-qYkDFQAAAAAdAAAAABAE"
   },
   {
     "id": 3,
@@ -63,7 +65,8 @@
         "attributeValue": "Sapphire"
       }
     ],
-    "description": "Exquisite platinum ring featuring a sapphire centerpiece."
+    "description": "Exquisite platinum ring featuring a sapphire centerpiece.",
+    "imageUrl": "https://www.lilodiamonds.com/cdn/shop/products/big-oval-blue-Sapphire-diamonds-ring-14karat01.jpg?v=1589726274&width=1080"
   },
   {
     "id": 4,
@@ -85,7 +88,8 @@
         "attributeValue": "Cultured Pearl"
       }
     ],
-    "description": "Elegant pearl bracelet with sterling silver accents."
+    "description": "Elegant pearl bracelet with sterling silver accents.",
+    "imageUrl": "https://i0.wp.com/putstyle.in/wp-content/uploads/2021/09/2-13.png?fit=900%2C900&ssl=1"
   },
   {
     "id": 5,
@@ -107,7 +111,8 @@
         "attributeValue": "Ruby"
       }
     ],
-    "description": "Stunning ruby pendant in 18K rose gold."
+    "description": "Stunning ruby pendant in 18K rose gold.",
+    "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thediamondstore.co.uk%2Fruby-pendant-necklace-with-lab-diamonds-in-925-silver-7-x-5mm-centre-p29409c756.cfm&psig=AOvVaw1MfLWi02uxTh5nWB-GcJV-&ust=1729961480989000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLiC6u3-qYkDFQAAAAAdAAAAABAR"
   },
   {
     "id": 6,
@@ -129,7 +134,8 @@
         "attributeValue": "Diamond"
       }
     ],
-    "description": "Sparkling diamond stud earrings in 14K white gold."
+    "description": "Sparkling diamond stud earrings in 14K white gold.",
+    "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.fionadiamonds.com%2Fproducts%2Fsofie-4-5ct-heart-lab-diamond-stud-earrings&psig=AOvVaw2jSJ3v3BIR_dwTivhWJoj0&ust=1729961518745000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMDomYH_qYkDFQAAAAAdAAAAABAJ"
   },
   {
     "id": 7,
@@ -151,7 +157,8 @@
         "attributeValue": "Emerald"
       }
     ],
-    "description": "Gold-plated bangle with embedded emerald stones."
+    "description": "Gold-plated bangle with embedded emerald stones.",
+    "imageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gehnaindia.com%2Fevergreen-natural-emerald-18k-gold-bangles&psig=AOvVaw3uIe4ORwSrLur1aO9WgBTO&ust=1729961572869000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNDwj5r_qYkDFQAAAAAdAAAAABAE"
   },
   {
     "id": 8,
@@ -173,7 +180,9 @@
         "attributeValue": "Amethyst"
       }
     ],
-    "description": "Sterling silver pendant with a brilliant amethyst stone."
+    "description": "Sterling silver pendant with a brilliant amethyst stone.",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/2987/3832/products/1_1a84f370-f015-49f1-808c-e091720b002b.jpg?v=1630478518"
+
   },
   {
     "id": 9,
@@ -195,6 +204,7 @@
         "attributeValue": "Opal"
       }
     ],
-    "description": "Rose gold ring featuring a mesmerizing opal stone."
+    "description": "Rose gold ring featuring a mesmerizing opal stone.",
+    "imageUrl": "https://mollyjewelryus.com/wp-content/uploads/2022/10/Rose-Gold-Oval-Cut-Opal-Engagement-Ring.jpg"
   }
 ]
