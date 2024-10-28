@@ -15,7 +15,9 @@ export default function Shop() {
 
       <div className="w-full flex items-start gap-5">
         <ShopSidebar />
-        <CardsGrid />
+        <section className="w-4/5">
+          <CardsGrid />
+        </section>
       </div>
     </div>
   );
