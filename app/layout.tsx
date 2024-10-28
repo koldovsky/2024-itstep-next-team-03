@@ -21,7 +21,7 @@ export default function RootLayout({
           <header>
             <NavigationBar />
           </header>
-          <main className="container mx-auto mt-28 px-10 lg:px-28">
+          <main className="container mx-auto mt-28 px-4 md:px-10 lg:px-28">
             {children}
           </main>
           <footer>
