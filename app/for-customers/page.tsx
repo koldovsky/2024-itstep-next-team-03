@@ -7,8 +7,8 @@ import PublicOffer from "../../public/images/for-customers/public-offer.webp";
 
 export default function ForCustomers() {
   return (
-    <div>
-      <BreadCrumbsBar params={{ url: `/for-customers` }} />
+    <div className="w-full">
+      <BreadCrumbsBar params={{ url: `/for customers` }} />
       <PageHeading params={{ content: "Buyers" }} />
         <div className="flex justify-center gap-9 flex-wrap mt-10">
           <InformationBox

@@ -1,8 +1,16 @@
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
-export default function ContentBox({ imageSrc, date, title, description }) {
+interface ContentBoxProps {
+    imageSrc: StaticImageData;
+    date: string;
+    title: string;
+    description: string;
+}
+
+export default function ContentBox({ imageSrc, date, title, description }: ContentBoxProps) {
     return (
-        <div className="bg-[#F2F1EE] h-[420px] w-[345px] overflow-hidden
+        <div className="bg-[#F2F1EE] h-[420px] w-full overflow-hidden
          transition-transform duration-700 ease-out hover:-translate-y-2 ">
             <div className="relative">
                 <Image src={imageSrc} alt="jewelry-pics" className="h-60 w-full object-cover"/>

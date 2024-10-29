@@ -6,15 +6,18 @@ interface ButtonTextProps {
     url: string;
     className: string;
     linkClassName?: string;
+    onClick?: () => void;
   };
 }
 
 export default function Button({ params }: ButtonTextProps) {
-  const { content, url, className, linkClassName } = params;
+  const { content, url, className, linkClassName, onClick } = params;
 
   return (
     <Link href={url} className={linkClassName}>
-      <button className={className}>{content}</button>
+      <button onClick={onClick} className={className}>
+        {content}
+      </button>
     </Link>
   );
 }
