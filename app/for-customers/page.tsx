@@ -10,7 +10,7 @@ export default function ForCustomers() {
     <div>
       <BreadCrumbsBar params={{ url: `/for-customers` }} />
       <PageHeading params={{ content: "Buyers" }} />
-        <div className="flex justify-center gap-8 flex-wrap mt-10">
+        <div className="flex justify-center gap-9 flex-wrap mt-10">
           <InformationBox
               imageSrc={AboutUs}
               tittle="About Us"
