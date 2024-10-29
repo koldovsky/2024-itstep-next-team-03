@@ -2,22 +2,29 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 
 interface InformationBoxProps {
-    imageSrc: StaticImageData;
-    tittle: string;
+  imageSrc: StaticImageData;
+  tittle: string;
 }
 
-export default function InformationBox({ imageSrc, tittle }: InformationBoxProps) {
-    return (
-        <div
-            className="bg-[#F2F1EE] h-72 w-full overflow-hidden
+export default function InformationBox({
+  imageSrc,
+  tittle,
+}: InformationBoxProps) {
+  return (
+    <div
+      className="bg-[#F2F1EE] h-72 w-full overflow-hidden
             transition-transform duration-700 ease-out hover:-translate-y-2 "
-        >
-            <div className="w-full">
-                <Image src={imageSrc} alt="info-pics" className="h-56" />
-            </div>
-            <div className="px-5 py-5">
-                <h1 className="font-sm">{tittle}</h1>
-            </div>
-        </div>
-    );
+    >
+      <div className="w-full h-56 overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt="info-pics"
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="px-5 py-5">
+        <h1 className="font-sm">{tittle}</h1>
+      </div>
+    </div>
+  );
 }

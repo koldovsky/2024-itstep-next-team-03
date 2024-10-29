@@ -10,19 +10,10 @@ export default function ForCustomers() {
     <div className="w-full">
       <BreadCrumbsBar params={{ url: `/for customers` }} />
       <PageHeading params={{ content: "Buyers" }} />
-        <div className="flex justify-center gap-9 flex-wrap mt-10">
-          <InformationBox
-              imageSrc={AboutUs}
-              tittle="About Us"
-          />
-          <InformationBox
-              imageSrc={Delivery}
-              tittle="Delivery and payment"
-          />
-          <InformationBox
-              imageSrc={PublicOffer}
-              tittle="Public offer"
-          />
+      <div className="flex justify-center gap-9 flex-col lg:flex-row mt-10">
+        <InformationBox imageSrc={AboutUs} tittle="About Us" />
+        <InformationBox imageSrc={Delivery} tittle="Delivery and payment" />
+        <InformationBox imageSrc={PublicOffer} tittle="Public offer" />
       </div>
     </div>
   );
