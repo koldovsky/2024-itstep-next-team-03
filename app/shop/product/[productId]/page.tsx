@@ -11,6 +11,7 @@ import BreadCrumbsBar from "@/app/components/bread-crumbs-bar/bread-crumbs-bar";
 
 import { ProductItem } from "@/app/types/products";
 import { products } from "@/app/lib/placeholder-data";
+import RelatedProducts from "@/app/components/similiar-products";
 
 const Product = ({ params }: { params: { productId: string } }) => {
   const { productId } = params;
@@ -38,7 +39,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
   return (
     <div>
       <BreadCrumbsBar params={{ url: `/shop/${productName}` }} />
-      <section className="p-3 sm:p-10 max-w-[1200px] mx-auto min-h-screen">
+      <section className="p-3 sm:py-10 max-w-[1400px] mx-auto min-h-screen ">
         {/* General Container */}
         <article className="min-h-screen">
           <div className="flex flex-col lg:flex-row w-full gap-8">
@@ -107,6 +108,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
 
           {/* Feedback Section */}
           <ProductFeedback />
+          <RelatedProducts />
         </article>
       </section>
     </div>
