@@ -27,10 +27,14 @@ const ProductCard = ({ title, price, image }: ProductCardProps) => {
         >
           <Image src={heart} alt="Heart Icon" width={23} height={23} />
         </div>
-        <Image src={image} alt="Product" width={200}
-    height={200}
-    className="w-full h-auto"
-    style={{ objectFit: 'contain' }} />
+        <Image
+          src={image}
+          alt="Product"
+          width={200}
+          height={200}
+          className="w-full h-auto"
+          style={{ objectFit: "contain" }}
+        />
       </div>
       <div className={`${styles.contentContainer} text-gray-700 pt-3`}>
         <h1 className={`flex flex-col items-center gap-4`}>
