@@ -6,15 +6,15 @@ import Delivery from "../../public/images/for-customers/delivery.webp";
 import PublicOffer from "../../public/images/for-customers/public-offer.webp";
 
 export default function ForCustomers() {
-  return (
-    <div className="w-full">
-      <BreadCrumbsBar params={{ url: `/for customers` }} />
-      <PageHeading params={{ content: "Buyers" }} />
-      <div className="flex justify-center gap-9 flex-col lg:flex-row mt-10">
-        <InformationBox imageSrc={AboutUs} tittle="About Us" />
-        <InformationBox imageSrc={Delivery} tittle="Delivery and payment" />
-        <InformationBox imageSrc={PublicOffer} tittle="Public offer" />
-      </div>
-    </div>
-  );
+    return (
+        <div className="w-full">
+            <BreadCrumbsBar params={{ url: `/for customers` }} />
+            <PageHeading params={{ content: "Buyers" }} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                <InformationBox imageSrc={AboutUs} tittle="About Us" />
+                <InformationBox imageSrc={Delivery} tittle="Delivery and payment" />
+                <InformationBox imageSrc={PublicOffer} tittle="Public offer" />
+            </div>
+        </div>
+    );
 }
