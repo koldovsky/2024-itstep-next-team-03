@@ -11,7 +11,7 @@ export default function Blog() {
     <div>
       <BreadCrumbsBar params={{ url: `/blog` }} />
       <PageHeading params={{ content: "Blog" }} />
-      <div className="flex flex-row justify-center gap-9 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         <Link href="/blog/1" passHref>
           <ContentBox
             imageSrc={MostPopularJewelryStones}
