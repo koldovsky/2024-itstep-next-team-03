@@ -9,7 +9,7 @@ export default function AccountPage() {
         params={{ content: "Profile", className: "capitalize mb-4 text-3xl" }}
       />
 
-      <div className="flex justify-between gap-4">
+      <div className="flex flex-col md:flex-row justify-between gap-4">
         <div className="mb-6 w-1/2">
           <h2 className="text-md text-gray-500">Name</h2>
           <p className="text-lg">Mykhailo Nyskohuz</p>
@@ -26,14 +26,12 @@ export default function AccountPage() {
           params={{
             content: "Change password",
             url: "/account/change-password",
-            className: "primary-btn w-full",
           }}
         />
         <Button
           params={{
-          content: "Edit",
-          url: "/account/edit",
-          className: "primary-btn w-full",
+            content: "Edit",
+            url: "/account/editprofile",
           }}
         />
       </div>

@@ -21,7 +21,7 @@ export default function Shop() {
               className: "sort-btn h-7 text-sm px-3",
             }}
           />
-          <Image src={sort} alt="Sort button" className="h-6 w-6" />
+          <Image src={sort} alt="Sort button" className="h-6 w-6" /> 
         </div>
       </div>
 
