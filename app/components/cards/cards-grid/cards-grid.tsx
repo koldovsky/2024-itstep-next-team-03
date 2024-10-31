@@ -41,21 +41,20 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid justify-center gap-4 grid-rows-auto sm:grid-cols-2 md:grid-cols-3 ">
-      {products.length > 0 ? (
-        sortedProducts
-          .slice(0, 6)
-          .map((product) => (
-            <ProductCard
-              key={product.id}
-              title={product.title}
-              price={product.price}
-              image={product.image}
-            />
-          ))
-      ) : (
-        <p>Loading products...</p>
-      )}
-    </div>
+      <div className="grid justify-center gap-4 grid-rows-auto sm:grid-cols-2 md:grid-cols-3 ">
+        {products.length > 0 ? (
+            sortedProducts.slice(0, 6).map((product) => (
+                <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    image={product.image}
+                />
+            ))
+        ) : (
+            <p>Loading products...</p>
+        )}
+      </div>
   );
 }
