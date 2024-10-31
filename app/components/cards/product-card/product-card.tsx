@@ -25,11 +25,9 @@ const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
           (productId) => productId !== id
       );
       setIsInWishlist(false);
-      console.log(`Product with ID ${id} removed from wishlist`);
     } else {
       wishlistData.product_ids.push(id);
       setIsInWishlist(true);
-      console.log(`Product with ID ${id} added to wishlist`);
     }
   };
 
@@ -41,7 +39,7 @@ const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
         <div className={`w-full relative flex-grow aspect-square overflow-hidden`}>
           <div
               className="absolute top-2 left-2 z-10 p-1.5 rounded-full flex items-center justify-center cursor-pointer
-          hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-300"
+          hover:bg-gray-100 active:bg-gray-200 active:scale-95 transition-all duration-300 bg-white"
               onClick={handleWishlistToggle}
           >
             <Image
