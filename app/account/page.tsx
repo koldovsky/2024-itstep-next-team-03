@@ -26,12 +26,14 @@ export default function AccountPage() {
           params={{
             content: "Change password",
             url: "/account/change-password",
+            className: "w-full md:w-auto secondary-btn",
           }}
         />
         <Button
           params={{
             content: "Edit",
             url: "/account/editprofile",
+            className: "w-full md:w-auto secondary-btn",
           }}
         />
       </div>

@@ -61,7 +61,7 @@ export default function EditProfilePage() {
           params={{
             content: "Save",
             url: "/account/editprofile",
-            className: "mt-4",
+            className: "mt-4 secondary-btn",
           }}
         />
       </form>

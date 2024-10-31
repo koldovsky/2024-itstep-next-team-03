@@ -16,10 +16,10 @@ const ProductCard = ({ title, price, image }: ProductCardProps) => {
   return (
     <div
       className={`shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] flex flex-col 
-        flex-1 bg-white h-128 p-4 ${styles.container} relative transition-all duration-300 hover:shadow-xl hover:shadow-gray-500 hover:z-40`}
+        flex-1 bg-white h-128 p-4 ${styles.container} relative transition-all duration-300 hover:shadow-xl hover:shadow-gray-500 hover:z-20`}
     >
       <div
-        className={`w-full aspect-square ${styles.imageContainer} relative flex-grow`}
+        className={`w-full ${styles.imageContainer} relative flex-grow aspect-square overflow-hidden`}
       >
         <div
           className="absolute top-2 left-2 bg-white z-10 p-1.5 rounded-full flex items-center justify-center 
@@ -27,7 +27,14 @@ const ProductCard = ({ title, price, image }: ProductCardProps) => {
         >
           <Image src={heart} alt="Heart Icon" width={23} height={23} />
         </div>
-        <Image src={image} alt="Product" layout="fill" objectFit="cover" />
+        <Image
+          src={image}
+          alt="Product"
+          width={200}
+          height={200}
+          className="w-full h-auto"
+          style={{ objectFit: "contain" }}
+        />
       </div>
       <div className={`${styles.contentContainer} text-gray-700 pt-3`}>
         <h1 className={`flex justify-between gap-4`}>
@@ -40,7 +47,7 @@ const ProductCard = ({ title, price, image }: ProductCardProps) => {
             params={{
               content: "Buy",
               url: "/shop/product/1",
-              className: "secondary-btn w-full lg:py-3",
+              className: "secondary-btn w-full",
             }}
           />
         </div>
