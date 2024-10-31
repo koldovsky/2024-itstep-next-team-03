@@ -37,8 +37,8 @@ const ProductCard = ({ title, price, image }: ProductCardProps) => {
         />
       </div>
       <div className={`${styles.contentContainer} text-gray-700 pt-3`}>
-        <h1 className={`flex flex-col items-center gap-4`}>
-          <span className="text-base text-center">{title}</span>
+        <h1 className={`flex justify-between gap-4`}>
+          <span className="text-base">{title}</span>
           <span className="text-base font-bold text-center">{price}€</span>
         </h1>
         <div className="flex flex-col justify-between mt-4 gap-4">
@@ -47,7 +47,7 @@ const ProductCard = ({ title, price, image }: ProductCardProps) => {
             params={{
               content: "Buy",
               url: "/shop/product/1",
-              className: "secondary-btn w-full",
+              className: "secondary-btn w-full lg:py-3",
             }}
           />
         </div>
