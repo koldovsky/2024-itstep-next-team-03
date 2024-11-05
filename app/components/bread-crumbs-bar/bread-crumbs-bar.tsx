@@ -19,7 +19,7 @@ export default function BreadCrumbsBar({ params }: BreadCrumbsBarProps) {
     .map((e) => e.charAt(0).toUpperCase() + e.slice(1));
 
   return (
-    <div className="bg-[var(--primary-clr)] h-8 fixed w-full left-0 top-28 z-30">
+    <div className="bg-[var(--primary-clr)] h-8 absolute w-full left-0 top-28 z-30">
       <ul className="container mx-auto h-8 flex gap-4 items-center text-xs px-10 lg:px-28">
         <li key={0}>
           <Link href="/" className="text-gray-400 cursor-pointer">

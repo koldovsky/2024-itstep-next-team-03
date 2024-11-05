@@ -10,18 +10,30 @@ import search from "@/public/icons/search.svg";
 import cart from "@/public/icons/cart.svg";
 import styles from "./navigation-bar.module.css";
 import NavSidebar from "./nav-sidebar/nav-sidebar";
+import Search from "../search/search";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function NavigationBar() {
   const [sidebarVisibility, setSidebarVisibility] = useState<boolean>(false);
+  const [searchVisibility, setSearchVisibility] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (searchVisibility) {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 10);
+    }
+  }, [searchVisibility]);
 
   return (
+    <>
     <nav
       className={`${styles.navigation} ${
         sidebarVisibility ? "ml-96" : ""
-      } h-28 fixed w-full left-0 top-0 z-40 bg-white`}
+      } h-28 relative w-full left-0 top-0 z-40 bg-white`}
     >
+      
       <div className="container mx-auto flex justify-between h-28 items-center px-10 lg:px-28">
         <div className="flex flex-1 justify-start items-center">
           <div
@@ -63,7 +75,7 @@ export default function NavigationBar() {
           <Link href="/account/selected" className="h-6 w-6 hidden md:block">
             <Image src={heart} alt="Wishlist" />
           </Link>
-          <Link href="#" className="h-6 w-6">
+          <Link href="#" className="h-6 w-6" onClick={() => setSearchVisibility(!searchVisibility)}>
             <Image src={search} alt="Search" />
           </Link>
           <Link href="#" className="h-6 w-6">
@@ -81,6 +93,9 @@ export default function NavigationBar() {
           }`,
         }}
       />
+      
     </nav>
+    {searchVisibility && <Search />}
+    </>
   );
 }

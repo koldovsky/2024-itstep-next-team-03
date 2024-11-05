@@ -17,5 +17,12 @@ type AttributeType = {
   attributeName: string;
   attributeValue: string;
 };
-
-export type { ProductItem, AttributeType };
+type Product = {
+  id: string
+  name: string
+  image: string
+  originalPrice?: number
+  currentPrice: number
+  inStock: boolean
+}
+export type { ProductItem, AttributeType, Product };
