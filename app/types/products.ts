@@ -7,9 +7,10 @@ type ProductItem = {
   price: number;
   currency: string;
   quantityAvailable: number;
-  clasps: string[];
+  clasps: string;
   attributes: AttributeType[];
   description: string;
+  imageUrl: string;
 };
 
 type AttributeType = {
