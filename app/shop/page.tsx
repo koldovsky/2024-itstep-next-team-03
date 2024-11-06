@@ -3,6 +3,7 @@ import CardsGrid from "../components/cards/cards-grid/cards-grid";
 import BreadCrumbsBar from "../components/bread-crumbs-bar/bread-crumbs-bar";
 import ShopSidebar from "../components/shop-sidebar/shop-sidebar";
 import ProductSorting from "../components/product-sorting";
+
 export default function Shop() {
   return (
     <div className="w-full">

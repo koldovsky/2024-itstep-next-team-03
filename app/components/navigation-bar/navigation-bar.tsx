@@ -9,12 +9,17 @@ import heart from "@/public/icons/heart.svg";
 import search from "@/public/icons/search.svg";
 import cart from "@/public/icons/cart.svg";
 import styles from "./navigation-bar.module.css";
+
 import NavSidebar from "./nav-sidebar/nav-sidebar";
+import ShoppingCartSidebar from "../shopping-cart-sidebar/shopping-cart-sidebar";
 
 import { useState } from "react";
+import { order } from "@/app/lib/placeholder-order";
 
 export default function NavigationBar() {
   const [sidebarVisibility, setSidebarVisibility] = useState<boolean>(false);
+  const [shoppingCartVisibility, setShoppingCartVisibility] =
+    useState<boolean>(false);
 
   return (
     <nav
@@ -30,18 +35,24 @@ export default function NavigationBar() {
           >
             <div
               className={`${styles.line} 
-                ${sidebarVisibility ? `${styles["opened-line1"]}` : ""} block lg:hidden`}
+                ${
+                  sidebarVisibility ? `${styles["opened-line1"]}` : ""
+                } block lg:hidden`}
             ></div>
             <div
               className={`${styles.line} 
-                ${sidebarVisibility ? `${styles["opened-line2"]}` : ""} block lg:hidden`}
+                ${
+                  sidebarVisibility ? `${styles["opened-line2"]}` : ""
+                } block lg:hidden`}
             ></div>
             <div
               className={`${styles.line} 
-                ${sidebarVisibility ? `${styles["opened-line3"]}` : ""} block lg:hidden`}
+                ${
+                  sidebarVisibility ? `${styles["opened-line3"]}` : ""
+                } block lg:hidden`}
             ></div>
           </div>
-          <div className="flex items-center gap-x-5 hidden md:flex">
+          <div className="items-center gap-x-5 hidden md:flex">
             <Link href="https://www.instagram.com/" className="h-5 w-5">
               <Image src={instagram} alt="Instagram" />
             </Link>
@@ -51,9 +62,9 @@ export default function NavigationBar() {
             <Link href="https://www.facebook.com/" className="h-5 w-5">
               <Image src={facebook} alt="Facebook" />
             </Link>
-          <Link href="#" className="hidden lg:block text-sm">
-            +38 (099) 000 00 00
-          </Link>
+            <Link href="#" className="hidden lg:block text-sm">
+              +38 (099) 000 00 00
+            </Link>
           </div>
         </div>
         <Link href="/" className="flex flex-1 justify-center">
@@ -66,7 +77,11 @@ export default function NavigationBar() {
           <Link href="#" className="h-6 w-6">
             <Image src={search} alt="Search" />
           </Link>
-          <Link href="#" className="h-6 w-6">
+          <Link
+            href="#"
+            className="h-6 w-6"
+            onClick={() => setShoppingCartVisibility(!shoppingCartVisibility)}
+          >
             <Image src={cart} alt="Cart" />
           </Link>
         </div>
@@ -81,6 +96,22 @@ export default function NavigationBar() {
           }`,
         }}
       />
+      <ShoppingCartSidebar
+        params={{
+          type: "checkout",
+          order: order,
+          onClick: () => setShoppingCartVisibility(false),
+          className: `${shoppingCartVisibility ? "right-0" : "right-[-384px]"}`,
+        }}
+      />
+
+      {shoppingCartVisibility && (
+        <div
+          className={`absolute top-0 h-[100vh] inset-0 bg-black 
+                      bg-opacity-10 backdrop-blur-sm z-40`}
+          onClick={() => setShoppingCartVisibility(false)}
+        ></div>
+      )}
     </nav>
   );
 }
