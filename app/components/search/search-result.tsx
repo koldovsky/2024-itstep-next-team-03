@@ -1,4 +1,5 @@
 import { Product } from "@/app/types/products";
+import Link from "next/link";
 
 type SearchResultProps = {
   product: Product;
@@ -6,8 +7,10 @@ type SearchResultProps = {
 
 const SearchResult = ({ product }: SearchResultProps) => (
   <div key={product.id} className="border-b pb-6">
-<h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-<p className="text-sm text-gray-500 mb-2">#{product.id}</p>
+    <Link href={`/product/${product.id}`}>  
+      <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+      <p className="text-sm text-gray-500 mb-2">#{product.id}</p>
+    </Link>
 <img
   src={product.image}
   alt={product.name}
