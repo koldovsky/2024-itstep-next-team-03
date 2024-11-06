@@ -26,6 +26,36 @@ export const order: orderType = {
       amount: 1,
       discount: 600,
     },
+    {
+      id: 3,
+      image:
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Silver earrings with baroque pearls",
+      customAttribute: "Silver Au 925",
+      price: 5000,
+      amount: 1,
+      discount: 600,
+    },
+    {
+      id: 4,
+      image:
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Silver earrings with baroque pearls",
+      customAttribute: "Silver Au 925",
+      price: 5000,
+      amount: 1,
+      discount: 600,
+    },
+    {
+      id: 5,
+      image:
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Silver earrings with baroque pearls",
+      customAttribute: "Silver Au 925",
+      price: 5000,
+      amount: 1,
+      discount: 600,
+    },
   ],
 };
 
