@@ -15,7 +15,7 @@ export default function Button({ params }: ButtonTextProps) {
 
   return (
     <Link href={url} className={linkClassName}>
-      <button onClick={onClick} className={`${className} bg-black`}>
+      <button onClick={onClick} className={`${className}`}>
         {content}
       </button>
     </Link>
