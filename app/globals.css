@@ -10,6 +10,14 @@
   --primary-clr: #f2f1ee;
   --secondary-clr: #d4b486;
   --sidebar-font-clr: #1d1d1d;
+
+  --input-clr: #dfdcd4;
+  --input-focus-clr: #d4b486;
+  --input-label-clr: #1d1d1d;
+  --input-text-clr: #555555;
+
+  --order-sidebar-clr: #f7f7f7;
+  --order-sidebar-scroll-clr: #c5c5c5;
 }
 
 * {
@@ -28,6 +36,10 @@ body {
   display: none;
 }
 
+button {
+  font-size: 14px;
+}
+
 .primary-btn {
   transition: 0.5s ease;
   background-color: var(--white-clr);
@@ -36,6 +48,16 @@ body {
   padding: 15px 30px;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.checkout-btn {
+  transition: 0.5s ease;
+  background-color: var(--black-clr);
+  color: var(--white-clr);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0px 15px;
+  border: 1px solid var(--input-clr);
 }
 
 .primary-btn:hover {
@@ -58,9 +80,29 @@ body {
 }
 
 .secondary-btn:hover,
-.sort-btn:hover {
+.sort-btn:hover,
+.checkout-btn:hover {
   background-color: var(--secondary-clr);
   color: var(--white-clr);
+}
+
+
+.orders-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.orders-scrollbar-checkout::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-clr);
+  border-radius: 1px;
+}
+
+.orders-scrollbar-order::-webkit-scrollbar-thumb {
+  background-color: var(--order-sidebar-scroll-clr);
+  border-radius: 1px;
+}
+
+.orders-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--primary-clr);
 }
 
 
@@ -85,3 +127,4 @@ body {
 }
 
 /* ... existing CSS ... */
+

@@ -7,7 +7,9 @@ interface PageHeadingProps {
 
 export default function PageHeading({ params }: PageHeadingProps) {
   return (
-    <h1 className={`text-4xl font-bold uppercase ${params.className}`}>
+    <h1
+      className={`${params.className} text-2xl md:text-3xl font-bold uppercase`}
+    >
       {params.content}
     </h1>
   );
