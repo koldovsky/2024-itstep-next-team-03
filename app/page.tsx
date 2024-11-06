@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
           <p>Which will emphasize your texture</p>
         </div>
       </section>
-      <CardsGrid />
+      <CardsGrid params={{ pageType: "home" }} />
       <Button
         params={{
           content: "To the catalogue",

@@ -16,7 +16,7 @@ export default function Shop() {
       <div className="w-full flex items-start gap-5">
         <ShopSidebar />
         <section className="w-4/5">
-          <CardsGrid />
+          <CardsGrid params={{ pageType: "shop" }} />
         </section>
       </div>
     </div>
