@@ -19,6 +19,8 @@ const nextConfig = {
       "www.tiffanybridalsalon.com",
       "encrypted-tbn0.gstatic.com",
       "example.com",
+      "www.whpjewellers.com",
+      "kinclimg9.bluestone.com",
     ],
   },
   experimental: {
