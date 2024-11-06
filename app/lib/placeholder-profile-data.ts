@@ -1,4 +1,4 @@
-import { ProfileDataType } from "./placeholder-profile-data-type";
+import { ProfileDataType } from "../types/placeholder-profile-data-type";
 
 export const profileData: ProfileDataType = {
   firstName: "John",

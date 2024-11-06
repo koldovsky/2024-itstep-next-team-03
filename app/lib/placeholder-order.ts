@@ -1,18 +1,4 @@
-interface orderType {
-  id: number;
-  totalCost: number;
-  finalPrice: number;
-  discount: number;
-  products: Array<{
-    id: number;
-    image: string;
-    title: string;
-    customAttribute: string;
-    price: number;
-    amount: number;
-    discount: number;
-  }>;
-}
+import { orderType } from "../types/placeholder-order-type";
 
 export const order: orderType = {
   id: 1,

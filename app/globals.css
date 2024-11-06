@@ -15,6 +15,9 @@
   --input-focus-clr: #d4b486;
   --input-label-clr: #1d1d1d;
   --input-text-clr: #555555;
+
+  --order-sidebar-clr: #f7f7f7;
+  --order-sidebar-scroll-clr: #c5c5c5;
 }
 
 * {
@@ -87,8 +90,13 @@ button {
   width: 2px;
 }
 
-.orders-scrollbar::-webkit-scrollbar-thumb {
+.orders-scrollbar-checkout::-webkit-scrollbar-thumb {
   background-color: var(--secondary-clr);
+  border-radius: 1px;
+}
+
+.orders-scrollbar-order::-webkit-scrollbar-thumb {
+  background-color: var(--order-sidebar-scroll-clr);
   border-radius: 1px;
 }
 
