@@ -9,10 +9,13 @@ import { SORTING_OPTIONS } from "./sorting-options";
 
 const ProductSorting = () => {
   const [isSortingOpen, setIsSortingOpen] = useState<boolean>(false);
+  const [selectedSortCriteria, setSelectedSortCriteria] =
+    useState<string>("Default");
 
-  const toggleIsSortingOpen = () => {
-    setIsSortingOpen((prev) => !prev);
-  };
+  const toggleIsSortingOpen = () => setIsSortingOpen((prev) => !prev);
+
+  const handleSetSelectedCriteria = (criteriaName: string) =>
+    setSelectedSortCriteria(criteriaName);
 
   return (
     <div className="relative flex flex-row gap-4 items-center ">
@@ -20,7 +23,7 @@ const ProductSorting = () => {
 
       <Button
         params={{
-          content: "Popular",
+          content: selectedSortCriteria,
           url: "",
           className: "sort-btn h-7 text-sm px-3",
           onClick: toggleIsSortingOpen,
@@ -41,6 +44,7 @@ const ProductSorting = () => {
               sortBy={sortItem.sortBy}
               criteria={sortItem.criteria}
               onSortItemClick={toggleIsSortingOpen}
+              handleSetSelectedCriteria={handleSetSelectedCriteria}
             />
           ))}
         </ul>
