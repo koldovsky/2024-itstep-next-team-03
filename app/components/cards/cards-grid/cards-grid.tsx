@@ -9,7 +9,11 @@ import {
 import { ProductSortCriteria } from "@/app/enum/ProductSortCriteria";
 import { Product } from "@/app/lib/definitions";
 
-export default function Home() {
+interface CardsGridType {
+  params: { pageType: "home" | "shop" };
+}
+
+export default function CardsGrid({ params }: CardsGridType) {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -68,7 +72,13 @@ export default function Home() {
   }, [products, minPrice, maxPrice, sortBy]);
 
   return (
-    <div className="grid justify-center gap-4 grid-rows-auto sm:grid-cols-2 md:grid-cols-3">
+    <div
+      className={`${
+        params.pageType === "home"
+          ? "sm:grid-cols-2 md:grid-cols-3"
+          : "sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+      } grid justify-center gap-4 grid-rows-auto`}
+    >
       {isLoading ? (
         <p>Loading products...</p>
       ) : filteredAndSortedProducts.length > 0 ? (
@@ -86,6 +96,6 @@ export default function Home() {
       ) : (
         <p>No products found.</p>
       )}
-    </div>
+    </div> 
   );
 }

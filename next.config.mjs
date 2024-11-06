@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: "fakestoreapi.com" }],
+    remotePatterns: [
+      { hostname: "fakestoreapi.com" },
+      { hostname: "images.unsplash.com" },
+    ],
     domains: [
       "i.ebayimg.com",
       "www.lilodiamonds.com",
@@ -12,11 +15,9 @@ const nextConfig = {
       "i0.wp.com",
       "purplesecret.in",
       "mollyjewelryus.com",
-      "www.google.com",
       "tailoredjewel.com.sg",
       "www.tiffanybridalsalon.com",
       "encrypted-tbn0.gstatic.com",
-      "cdn.shopify.com",
       "example.com",
     ],
   },
