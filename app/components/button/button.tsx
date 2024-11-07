@@ -4,7 +4,7 @@ interface ButtonTextProps {
   params: {
     content: string;
     url: string;
-    className: string;
+    className?: string;
     linkClassName?: string;
     onClick?: () => void;
   };
@@ -21,3 +21,4 @@ export default function Button({ params }: ButtonTextProps) {
     </Link>
   );
 }
+// 

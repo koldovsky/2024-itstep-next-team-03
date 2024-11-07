@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
   --font-clr: #171717;
   --black-clr: #000000;
   --white-clr: #ffffff;
@@ -28,7 +27,6 @@
 
 body {
   color: var(--font-clr);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 

@@ -35,8 +35,8 @@ export default function NavigationMenu() {
             <li key={item.href} className="">
                 <Link
                 href={item.href}
-                className={`flex items-center p-2 border-l-4 ${
-                  isActive ? 'bg-gray-100 border-l-4 border-black' : 'border-white'
+                className={`flex items-center p-2 border-l-2 ${
+                  isActive ? 'bg-gray-100 border-l-2 border-black' : 'border-white'
                 } hover:bg-gray-100`}
               >
                 {item.icon && <span className="mr-3">{item.icon}</span>}
