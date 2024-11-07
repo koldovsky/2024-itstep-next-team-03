@@ -83,7 +83,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
                     className: "secondary-btn h-14",
                   }}
                 />
-                <AddToWishlist />
+                <AddToWishlist item={product} />
               </div>
 
               {/* Characteristics Section */}

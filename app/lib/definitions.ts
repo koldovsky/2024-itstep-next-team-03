@@ -15,6 +15,7 @@ export type Product = {
   quantity_available: number | null;
   image_url: string;
   custom_parameters: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attributes: Record<string, any> | null;
   description: string | null;
 };

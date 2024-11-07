@@ -1,4 +1,4 @@
-import { Product } from "../components/cards/cards-grid/cards-grid";
+import { Product } from "@/app/lib/definitions";
 import { ProductSortCriteria } from "../enum/ProductSortCriteria";
 
 export const getSortedProducts = (
@@ -11,7 +11,7 @@ export const getSortedProducts = (
     case ProductSortCriteria.EXPENSIVE:
       return products.sort((a, b) => b.price - a.price);
     default:
-      return products.sort((a, b) => a.id - b.id);
+      return products.sort((a, b) => a.product_id - b.product_id);
   }
 };
 
