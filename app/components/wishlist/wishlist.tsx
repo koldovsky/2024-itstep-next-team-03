@@ -7,7 +7,7 @@ type AddToWishlistProps = {
     item: ProductItem;
 };
 
-const AddToWishlist = ({ item }: AddToWishlistProps) => {
+const Wishlist = ({ item }: AddToWishlistProps) => {
     const handleAddToWishlist = async () => {
         try {
             // delete when connect to backend
@@ -37,4 +37,4 @@ const AddToWishlist = ({ item }: AddToWishlistProps) => {
     );
 };
 
-export default AddToWishlist;
+export default Wishlist;

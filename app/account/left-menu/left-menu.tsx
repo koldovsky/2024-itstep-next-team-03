@@ -13,7 +13,7 @@ export default function NavigationMenu() {
 
   const menuItems = [
     { name: 'Profile', href: '/account', icon: <IoPersonCircleOutline size={23} /> },
-    { name: 'Selected', href: '/account/selected', icon: <SlHeart size={22} /> },
+    { name: 'Wishlist', href: '/account/wishlist', icon: <SlHeart size={22} /> },
     { name: 'Orders', href: '/account/orders', icon: <LiaClipboardListSolid size={23} /> },
   ];
 

@@ -54,7 +54,7 @@ const WishlistPage = () => {
                 ))}
             </div>
             {wishlistItems.length === 0 && (
-                <p className="text-center text-gray-500 mt-6">Your wishlist is empty.</p>
+                <p className="text-lg font-bold">Your wishlist is empty.</p>
             )}
         </div>
     );

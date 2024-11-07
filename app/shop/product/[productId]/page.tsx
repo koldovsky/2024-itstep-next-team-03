@@ -4,7 +4,7 @@ import jewelryImage from "@/public/images/jewelry-2.jpg";
 
 import ProductCounter from "@/app/shop/product/products-ui/product-counter";
 import Button from "@/app/components/button/button";
-import AddToWishlist from "@/app/components/add-to-wishlist/add-to-wishlist";
+import Wishlist from "@/app/components/wishlist/wishlist";
 import ProductFeedback from "@/app/shop/product/products-ui/feedback/product-feedback";
 import CharacteristicList from "@/app/shop/product/products-ui/characteristic-list/characteristic-list";
 import BreadCrumbsBar from "@/app/components/bread-crumbs-bar/bread-crumbs-bar";
@@ -83,7 +83,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
                     className: "secondary-btn h-14",
                   }}
                 />
-                <AddToWishlist item={product} />
+                <Wishlist item={product} />
               </div>
 
               {/* Characteristics Section */}
