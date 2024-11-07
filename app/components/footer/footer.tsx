@@ -14,7 +14,7 @@ import visa from "@/public/icons/visa.svg";
 import mastercard from "@/public/icons/mastercard.svg";
 import styles from "./footer.module.css";
 import { navigationLinks } from "@/app/lib/navigation-links";
-import AuthSidebar from "@/app/components/auth-sidebar/auth-sidebar";
+import AuthSidebar from "@/app/components/auth/auth-sidebar";
 
 export default function Footer() {
   const [isAuthSidebarOpen, setAuthSidebarOpen] = useState(false);
