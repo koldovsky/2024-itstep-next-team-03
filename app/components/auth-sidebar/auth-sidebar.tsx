@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
-import facebookIcon from "@/public/icons/facebook-black.svg";
+import facebookIcon from "@/public/icons/facebook.svg";
 import googleIcon from "@/public/icons/google.svg";
 import styles from "./auth-sidebar.module.css";
 
@@ -15,42 +15,77 @@ export default function AuthSidebar({ isOpen, onClose }: { isOpen: boolean; onCl
 
     return (
         <div className={`${styles.overlay} fixed inset-0 bg-black bg-opacity-50 z-50`} onClick={onClose}>
-            <div className={`${styles.sidebar} bg-white w-80 p-6 fixed top-0 right-0 h-full shadow-lg`} onClick={(e) => e.stopPropagation()}>
-                <button onClick={onClose} className="text-right text-gray-500 mb-4">×</button>
-                <h2 className="text-xl font-semibold mb-4">{isLogin ? "Login" : "Registration"}</h2>
-
+            <div className={`${styles.sidebar} bg-white w-96 p-6 fixed top-0 right-0 h-full shadow-lg text-sm`}
+                 onClick={(e) => e.stopPropagation()}>
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-semibold">{isLogin ? "Login" : "Registration"}</h2>
+                    <button onClick={onClose} className="font-serif text-4xl">×</button>
+                </div>
+                <hr className="border-t border-gray-300 mb-4"/>
                 {isLogin ? (
                     <>
-                        <input type="text" placeholder="Email or phone number" className="w-full p-2 mb-4 border" />
-                        <input type="password" placeholder="Password" className="w-full p-2 mb-4 border" />
-                        <div className="flex items-center justify-between mb-4">
+                        <label className="block pb-1">Email or phone number</label>
+                        <input type="text" className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <label className="block pb-1">Password</label>
+                        <input type="password" className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <div className="flex items-center justify-between mb-4 text-gray-500">
                             <label className="flex items-center">
-                                <input type="checkbox" className="mr-2" />
+                                <input type="checkbox" className="mr-2"/>
                                 Keep me signed in
                             </label>
-                            <a href="#" className="text-sm text-blue-500">Forgot password?</a>
+                            <a href="#" className="cursor-pointer hover:text-black transition duration-300">Forgot
+                                password?</a>
                         </div>
-                        <button className="w-full p-2 bg-black text-white mb-4">LOGIN</button>
-                        <p className="text-center mb-2">Sign in with</p>
-                        <div className="flex justify-center gap-4 mb-4">
-                            <Image src={facebookIcon} alt="Facebook" width={30} height={30} />
-                            <Image src={googleIcon} alt="Google" width={30} height={30} />
+                        <p className="text-center mb-2 text-gray-500">Sign in with</p>
+                        <div className="flex gap-2 mb-4">
+                            <button
+                                className="flex items-center justify-center w-full border border-gray-300 p-3 hover:text-[--secondary-clr] hover:bg-gray-100 transition duration-300">
+                                <Image src={facebookIcon} alt="Facebook" width={20} height={20} className="mr-2"/>
+                                <span>Facebook</span>
+                            </button>
+                            <button
+                                className="flex items-center justify-center w-full border border-gray-300 p-3 hover:text-[--secondary-clr] hover:bg-gray-100 transition duration-300">
+                                <Image src={googleIcon} alt="Google" width={20} height={20} className="mr-2"/>
+                                <span>Google</span>
+                            </button>
                         </div>
-                        <p className="text-center">
-                            Don’t have an account? <span className="text-blue-500 cursor-pointer" onClick={toggleAuthMode}>Sign up</span>
+                        <button
+                            className="bg-[--primary-clr] w-full py-3 px-8 font-bold hover:bg-[--secondary-clr] hover:text-white transition duration-500">
+                            LOGIN
+                        </button>
+                        <p className="text-center pt-4">
+                            Don’t have an account? <span
+                            className="cursor-pointer hover:text-gray-500 transition duration-300"
+                            onClick={toggleAuthMode}>Sign up</span>
                         </p>
                     </>
                 ) : (
                     <>
-                        <input type="text" placeholder="First name" className="w-full p-2 mb-4 border" />
-                        <input type="text" placeholder="Surname" className="w-full p-2 mb-4 border" />
-                        <input type="text" placeholder="Phone number" className="w-full p-2 mb-4 border" />
-                        <input type="email" placeholder="Email" className="w-full p-2 mb-4 border" />
-                        <input type="password" placeholder="Password" className="w-full p-2 mb-4 border" />
-                        <input type="password" placeholder="Confirm password" className="w-full p-2 mb-4 border" />
-                        <button className="w-full p-2 bg-black text-white mb-4">SIGN UP</button>
-                        <p className="text-center">
-                            Already have an account? <span className="text-blue-500 cursor-pointer" onClick={toggleAuthMode}>Login</span>
+                        <label className="block pb-1">First name</label>
+                        <input type="text"
+                               className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <label className="block pb-1">Surname</label>
+                        <input type="text"
+                               className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <label className="block pb-1">Phone number</label>
+                        <input type="text"
+                               className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <label className="block pb-1">Email</label>
+                        <input type="email"
+                               className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <label className="block pb-1">Password</label>
+                        <input type="password"
+                               className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <label className="block pb-1">Confirm password</label>
+                        <input type="password"
+                               className="w-full border border-stone-300 text-sm p-2 mb-2 focus:outline-none focus:border-[--secondary-clr] transition duration-500"/>
+                        <button
+                            className="bg-[--primary-clr] w-full py-3 px-8 font-bold hover:bg-[--secondary-clr] hover:text-white transition duration-500">SIGN
+                            UP
+                        </button>
+                        <p className="text-center py-4">
+                            Already have an account? <span className="cursor-pointer"
+                                                           onClick={toggleAuthMode}>Login</span>
                         </p>
                     </>
                 )}
