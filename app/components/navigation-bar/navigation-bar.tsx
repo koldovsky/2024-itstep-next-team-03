@@ -71,7 +71,7 @@ export default function NavigationBar() {
           <Image className="h-16 w-auto" src={logo} alt="Milk jewelry logo" />
         </Link>
         <div className="flex flex-1 justify-end items-center gap-x-4 md:gap-x-6">
-          <Link href="/account/selected" className="h-6 w-6 hidden md:block">
+          <Link href="/account/wishlist" className="h-6 w-6 hidden md:block">
             <Image src={heart} alt="Wishlist" />
           </Link>
           <Link href="#" className="h-6 w-6">
