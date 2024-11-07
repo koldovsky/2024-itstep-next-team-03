@@ -1,13 +1,12 @@
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@/app/components/input/input"
+import { Label } from "@/app/components/label/label"
+import { Textarea } from "@/app/components/textarea/textarea"
 import { ChevronDown } from "lucide-react"
 import PageHeading from "@/app/components/page-heading/page-heading"
 import Button from "@/app/components/button/button"
 export default function EditProfilePage() {
   return (
     <div className="max-w-3xl ">
-      {/* <h1 className="text-3xl font-bold mb-6">Редагувати профіль</h1> */}
       <PageHeading
         params={{ content: "Edit profile", className: "capitalize mb-4 text-3xl mt-0 pt-0" }}
       />   
