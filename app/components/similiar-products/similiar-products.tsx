@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "../cards/cards-grid/cards-grid";
+import { Product } from "@/app/lib/definitions";
 import ProductCard from "../cards/product-card/product-card";
 
 const RelatedProducts = async () => {
@@ -12,14 +12,15 @@ const RelatedProducts = async () => {
         Similiar products
       </h2>
       <div className="grid justify-center gap-4 grid-rows-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {similiarProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            title={product.title}
-            image={product.image}
-            price={product.price}
-          />
-        ))}
+          {similiarProducts.map((product) => (
+              <ProductCard
+                  key={product.product_id}
+                  id={product.product_id}
+                  title={product.product_name}
+                  image={product.image_url}
+                  price={product.price}
+              />
+          ))}
       </div>
     </section>
   );

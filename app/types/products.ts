@@ -1,7 +1,7 @@
 type ProductItem = {
   id: number;
   productName: string;
-  category: string;
+  category?: string;
   article: string;
   manufacturer: string;
   price: number;
