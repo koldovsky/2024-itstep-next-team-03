@@ -84,7 +84,6 @@ button {
   color: var(--white-clr);
 }
 
-
 .orders-scrollbar::-webkit-scrollbar {
   width: 2px;
 }
@@ -103,7 +102,6 @@ button {
   background-color: var(--primary-clr);
 }
 
-
 /* ... existing CSS ... */
 
 .account-layout {
@@ -114,7 +112,9 @@ button {
 .left-menu {
   width: 200px;
   /* Ensure the left menu has a defined width */
-  background-color: var(--primary-clr); /* Optional: Add a background color for visibility */
+  background-color: var(
+    --primary-clr
+  ); /* Optional: Add a background color for visibility */
   /* Additional styling */
 }
 
@@ -125,4 +125,3 @@ button {
 }
 
 /* ... existing CSS ... */
-
