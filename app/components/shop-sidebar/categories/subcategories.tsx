@@ -30,7 +30,7 @@ const Subcategories = ({ category, subcategory }: Subcategories) => {
   }, [category]);
 
   return (
-    <div>
+    <div className="mb-4">
       <Link href="/shop" className="flex items-center gap-3">
         <Image src={leftArrow} alt="Left arrow" width={25} height={30} />
         <button className="text-left text-base">All categories</button>
