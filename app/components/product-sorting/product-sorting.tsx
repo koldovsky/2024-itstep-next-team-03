@@ -38,7 +38,7 @@ const ProductSorting = ({ handleFilterIconClick }: ProductSortingProps) => {
         onClick={handleFilterIconClick}
         src={sort}
         alt="Sort button"
-        className="h-6 w-6 lg:hidden"
+        className="h-6 w-6 lg:hidden cursor-pointer"
       />
 
       <div

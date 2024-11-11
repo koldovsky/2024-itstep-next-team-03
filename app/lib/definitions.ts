@@ -1,3 +1,5 @@
+import { AttributeType } from "../types/products";
+
 export type Category = {
   category_id: number;
   category_name: string;
@@ -16,7 +18,7 @@ export type Product = {
   image_url: string;
   custom_parameters: string | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  attributes: Record<string, any> | null;
+  attributes: AttributeType[];
   description: string | null;
 };
 

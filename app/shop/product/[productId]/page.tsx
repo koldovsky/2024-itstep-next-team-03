@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import jewelryImage from "@/public/images/jewelry-2.jpg";
 
 import ProductCounter from "@/app/shop/product/products-ui/product-counter";
 import Button from "@/app/components/button/button";
@@ -9,15 +8,13 @@ import ProductFeedback from "@/app/shop/product/products-ui/feedback/product-fee
 import CharacteristicList from "@/app/shop/product/products-ui/characteristic-list/characteristic-list";
 import BreadCrumbsBar from "@/app/components/bread-crumbs-bar/bread-crumbs-bar";
 
-import { ProductItem } from "@/app/types/products";
-import { products } from "@/app/lib/placeholder-data";
 import RelatedProducts from "@/app/components/similiar-products";
+import { fetchProductById } from "@/app/lib/data";
+import { Product as ProductItem } from "@/app/lib/definitions";
 
-const Product = ({ params }: { params: { productId: string } }) => {
+const Product = async ({ params }: { params: { productId: string } }) => {
   const { productId } = params;
-  const product: ProductItem | undefined = products.find(
-    (prod) => prod.id === +productId
-  );
+  const product: ProductItem = await fetchProductById(productId);
 
   if (!product) {
     return (
@@ -26,19 +23,22 @@ const Product = ({ params }: { params: { productId: string } }) => {
       </p>
     );
   }
+
   const {
-    productName,
+    product_id,
+    category_id,
+    product_name,
+    image_url,
     article,
     manufacturer,
     price,
-    currency,
-    description,
     attributes,
+    description,
   } = product;
 
   return (
     <div>
-      <BreadCrumbsBar params={{ url: `/shop/${productName}` }} />
+      <BreadCrumbsBar params={{ url: `/shop/${product_name}` }} />
       <section className="p-3 sm:py-10 max-w-[1400px] mx-auto min-h-screen ">
         {/* General Container */}
         <article className="min-h-screen">
@@ -47,8 +47,8 @@ const Product = ({ params }: { params: { productId: string } }) => {
             <div className="w-full lg:w-1/2">
               <Image
                 className="w-full h-[600px] object-cover sticky top-0"
-                src={jewelryImage}
-                alt={`Image of ${productName}`}
+                src={image_url}
+                alt={`Image of ${product_name}`}
                 width={500}
                 height={500}
               />
@@ -57,7 +57,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
             {/* Product Info Container */}
             <div className="py-2 w-full lg:w-1/2 h-[600px] overflow-y-auto custom-scrollbar">
               <h2 className=" text-xl md:text-2xl font-bold mb-4">
-                {productName}
+                {product_name}
               </h2>
 
               <p className="text-sm md:text-base text-gray-500 mb-4">
@@ -70,7 +70,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
               </p>
 
               <p className="text-xl md:text-2xl text-gray-800 mb-5">
-                {price} {currency} / pcs
+                {price} € / pcs
               </p>
 
               {/* Action Buttons */}
@@ -79,7 +79,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
                 <Button
                   params={{
                     content: "In the cart",
-                    url: "/shop/product/1",
+                    url: `/shop/product/${product_id}`,
                     className: "secondary-btn h-14",
                   }}
                 />
@@ -108,7 +108,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
 
           {/* Feedback Section */}
           <ProductFeedback />
-          <RelatedProducts />
+          <RelatedProducts categoryId={category_id!} />
         </article>
       </section>
     </div>

@@ -70,7 +70,7 @@ const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
           <Button
             params={{
               content: "Buy",
-              url: "/shop/product/1",
+              url: `/shop/product/${id}`,
               className: "secondary-btn w-full",
             }}
           />
