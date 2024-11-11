@@ -60,7 +60,6 @@ export async function fetchProductsBySubcategory(subcategoryName: string) {
       products.push(product.rows[0]);
     }
   }
-  console.log(products);
 
   return products;
 }

@@ -7,7 +7,11 @@ import sort from "@/public/icons/sort.svg";
 
 import { SORTING_OPTIONS } from "./sorting-options";
 
-const ProductSorting = () => {
+type ProductSortingProps = {
+  handleFilterIconClick: () => void;
+};
+
+const ProductSorting = ({ handleFilterIconClick }: ProductSortingProps) => {
   const [isSortingOpen, setIsSortingOpen] = useState<boolean>(false);
   const [selectedSortCriteria, setSelectedSortCriteria] =
     useState<string>("Default");
@@ -30,7 +34,12 @@ const ProductSorting = () => {
         }}
       />
 
-      <Image src={sort} alt="Sort button" className="h-6 w-6" />
+      <Image
+        onClick={handleFilterIconClick}
+        src={sort}
+        alt="Sort button"
+        className="h-6 w-6 lg:hidden"
+      />
 
       <div
         className={`absolute top-8 right-0 w-70 z-50 bg-white shadow-md ${

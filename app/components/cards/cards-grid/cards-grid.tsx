@@ -96,6 +96,6 @@ export default function CardsGrid({ params }: CardsGridType) {
       ) : (
         <p>No products found.</p>
       )}
-    </div> 
+    </div>
   );
 }
