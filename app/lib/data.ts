@@ -1,5 +1,9 @@
 import { sql } from "@vercel/postgres";
 import { Category, Product, Subcategory } from "./definitions";
+import {
+  ManufacturerData,
+  transformManufacturers,
+} from "../utils/transform-manufacturers";
 
 export async function fetchCategories() {
   try {
@@ -104,9 +108,26 @@ export async function fetchProductById(id: string) {
         id,
         10
       )}`;
+
     return data.rows[0];
   } catch (error) {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch product.");
+  }
+}
+
+export async function fetchManufacturers() {
+  try {
+    const data =
+      await sql<ManufacturerData>`SELECT manufacturer, COUNT(*) AS count
+                          FROM product
+                          GROUP BY manufacturer;`;
+
+    const result = transformManufacturers(data.rows);
+
+    return result;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch manufacturers.");
   }
 }
