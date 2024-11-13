@@ -27,6 +27,7 @@ export default function CardsGrid({ params }: CardsGridType) {
     : null;
   const minPrice = searchParams.get("minPrice");
   const maxPrice = searchParams.get("maxPrice");
+  const producer = searchParams.get("producer");
 
   useEffect(() => {
     async function loadProducts() {
@@ -68,8 +69,17 @@ export default function CardsGrid({ params }: CardsGridType) {
       result = getSortedProducts(sortCriteria, result);
     }
 
+    if (producer) {
+      result = result.filter((product) => {
+        const producers = producer
+          .split(",")
+          .map((item) => item.replace("+", " "));
+        return producers.includes(product.manufacturer!);
+      });
+    }
+
     return result;
-  }, [products, minPrice, maxPrice, sortBy]);
+  }, [products, minPrice, maxPrice, sortBy, producer]);
 
   return (
     <div
