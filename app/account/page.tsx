@@ -35,8 +35,12 @@ export default function AccountPage() {
                   Change password
               </button>
               {isChangePasswordSidebarOpen && (
-                  <ChangePasswordSidebar onClose={() => setChangePasswordSidebarOpen(false)} />
+                  <ChangePasswordSidebar
+                      isOpen={isChangePasswordSidebarOpen}
+                      onClose={() => setChangePasswordSidebarOpen(false)}
+                  />
               )}
+
 
               <Button
                   params={{
