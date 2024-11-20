@@ -3,8 +3,12 @@ import ImageSlider from "./components/image-slider/image-slider";
 import PageHeading from "./components/page-heading/page-heading";
 import Button from "@/app/components/button/button";
 import CardsGrid from "./components/cards/cards-grid/cards-grid";
+import { fetchProducts } from "./lib/data";
+import { Product } from "./lib/definitions";
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC = async () => {
+  const products: Product[] = await fetchProducts();
+
   return (
     <div className="flex flex-col gap-16">
       <ImageSlider />
@@ -14,7 +18,7 @@ const HomePage: React.FC = () => {
           <p>Which will emphasize your texture</p>
         </div>
       </section>
-      <CardsGrid params={{ pageType: "home" }} />
+      <CardsGrid params={{ pageType: "home", products }} />
       <Button
         params={{
           content: "To the catalogue",
