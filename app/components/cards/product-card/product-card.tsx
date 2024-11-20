@@ -6,18 +6,18 @@ import heartBlack from "@/public/icons/heart-black.svg";
 import ProductCardSwitch from "./product-card-switch";
 import Button from "@/app/components/button/button";
 import wishlistData from "@/app/lib/wishlist_data.json";
+import { addToCart } from "@/app/utils/cart-utils";
+import { CartItem } from "@/app/utils/cart-utils";
 
-interface ProductCardProps {
-  id: number;
-  title: string;
-  price?: number;
-  image: string;
-}
 
-const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
+const ProductCard = ({ id, title, price, image, quantity }: CartItem) => {
   const [isInWishlist, setIsInWishlist] = useState(
     wishlistData.product_ids.includes(id)
   );
+
+  const handleAddToCart = () => {
+    addToCart({ id, title, price, image, quantity });
+  };
 
   const handleWishlistToggle = () => {
     if (isInWishlist) {
@@ -69,6 +69,7 @@ const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
           <ProductCardSwitch />
           <Button
             params={{
+              onClick: handleAddToCart,
               content: "Buy",
               url: `/shop/product/${id}`,
               className: "secondary-btn w-full",
