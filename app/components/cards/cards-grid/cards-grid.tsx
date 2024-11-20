@@ -8,6 +8,7 @@ import {
 } from "@/app/utils/sort-products";
 import { ProductSortCriteria } from "@/app/enum/ProductSortCriteria";
 import { Product } from "@/app/lib/definitions";
+import ProductSkeleton from "../../product-skeleton";
 
 interface CardsGridType {
   params: { pageType: "home" | "shop" };
@@ -90,7 +91,9 @@ export default function CardsGrid({ params }: CardsGridType) {
       } grid justify-center gap-4 grid-rows-auto`}
     >
       {isLoading ? (
-        <p>Loading products...</p>
+        Array.from({ length: 10 }, (_, index) => (
+          <ProductSkeleton key={index} />
+        ))
       ) : filteredAndSortedProducts.length > 0 ? (
         filteredAndSortedProducts.map(
           ({ product_id, product_name, price, image_url }) => (
@@ -104,7 +107,9 @@ export default function CardsGrid({ params }: CardsGridType) {
           )
         )
       ) : (
-        <p>No products found.</p>
+        <div className="col-span-3 text-center mt-5 text-2xl font-bold">
+          No products found.
+        </div>
       )}
     </div>
   );
