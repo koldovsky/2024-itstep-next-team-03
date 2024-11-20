@@ -3,6 +3,8 @@ import OrderPromoCode from "./order-promo-code/order-promo-code";
 
 import { orderType } from "@/app/types/placeholder-order-type";
 
+import Link from "next/link";
+
 interface OrderSidebarType {
   params: {
     order: orderType;
@@ -24,9 +26,12 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
         <div className="flex flex-row justify-between text-sm">
           <p className="font-bold">Your order</p>
           {params.type === "checkout" && (
-            <p className="text-[var(--input-text-clr)] underline decoration-dashed underline-offset-4">
+            <Link
+              href="/shop/cart"
+              className="text-[var(--input-text-clr)] underline decoration-dashed underline-offset-4"
+            >
               Edit
-            </p>
+            </Link>
           )}
         </div>
         <div
