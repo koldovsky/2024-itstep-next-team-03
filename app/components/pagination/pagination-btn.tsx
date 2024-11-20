@@ -11,7 +11,7 @@ const PaginationBtn = ({ content, onClick, currentPage }: PaginationBtn) => {
     <button
       onClick={() => onClick(content)}
       className={`px-3 py-1.5 md:px-5  bg-textclr rounded-xl text-white font-bold text-sm md:text-base ${
-        currentPage === content ? "bg-primary" : ""
+        currentPage === content ? "bg-secondaryclr" : ""
       }`}
     >
       {content}
