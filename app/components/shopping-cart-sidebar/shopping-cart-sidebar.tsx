@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import OrderProduct from "../order-sidebar/order-product-card/order-product-card";
 import Button from "../button/button";
@@ -39,6 +41,28 @@ export default function ShoppingCartSidebar({
       fetchCart();
     }
   }, [params.isOpen]);
+
+  const handleLocalStorageUpdate = (event: CustomEvent) => {
+    const { key, value } = event.detail;
+    if (key === "cart") {
+      fetchCart();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("localStorageUpdate", (event: Event) => {
+      const customEvent = event as CustomEvent;
+      handleLocalStorageUpdate(customEvent);
+    });
+
+
+  }, []);
+
+  const handleStorageChange = (event: StorageEvent) => {
+    if (event.key === "cart") {
+      fetchCart();
+    }
+  };
 
   useEffect(() => {
     const onStorageUpdate = () => fetchCart();

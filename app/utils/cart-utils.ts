@@ -62,6 +62,8 @@ export const getCart = (): CartItem[] => {
         product.quantity += 1;
         localStorage.setItem("cart", JSON.stringify(cart));
         console.log("Product quantity incremented:", product);
+        dispatchLocalStorageUpdate("cart", cart);
+
         return true;
       } else {
         console.error("Product not found in cart.");
@@ -83,6 +85,8 @@ export const getCart = (): CartItem[] => {
           product.quantity -= 1;
           localStorage.setItem("cart", JSON.stringify(cart));
           console.log("Product quantity decremented:", product);
+          dispatchLocalStorageUpdate("cart", cart);
+
           return true;
         } else {
           console.error("Cannot decrement quantity below 1.");
@@ -100,4 +104,11 @@ export const getCart = (): CartItem[] => {
   
   export const getCartItemCount = (): number => {
     return getCart().length;
+  };
+
+  const dispatchLocalStorageUpdate = (key: string, value: any) => {
+    const event = new CustomEvent("localStorageUpdate", {
+      detail: { key, value },
+    });
+    window.dispatchEvent(event);
   };
