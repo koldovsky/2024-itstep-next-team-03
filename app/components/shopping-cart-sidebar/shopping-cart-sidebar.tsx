@@ -6,6 +6,7 @@ import Button from "../button/button";
 import ExpressCheckoutSidebar from "../express-checkout-sidebar/express-checkout-sidebar";
 import { CartItem, getCart } from "@/app/utils/cart-utils";
 
+
 import { orderType } from "@/app/types/placeholder-order-type";
 
 interface ShoppingCartSidebarType {
@@ -43,7 +44,7 @@ export default function ShoppingCartSidebar({
   }, [params.isOpen]);
 
   const handleLocalStorageUpdate = (event: CustomEvent) => {
-    const { key, value } = event.detail;
+    const { key } = event.detail;
     if (key === "cart") {
       fetchCart();
     }
@@ -58,11 +59,11 @@ export default function ShoppingCartSidebar({
 
   }, []);
 
-  const handleStorageChange = (event: StorageEvent) => {
-    if (event.key === "cart") {
-      fetchCart();
-    }
-  };
+  // const handleStorageChange = (event: StorageEvent) => {
+  //   if (event.key === "cart") {
+  //     fetchCart();
+  //   }
+  // };
 
   useEffect(() => {
     const onStorageUpdate = () => fetchCart();

@@ -1,3 +1,5 @@
+"use client";
+
 export interface CartItem {
     id: number;
     title: string;
@@ -14,7 +16,10 @@ export const getCart = (): CartItem[] => {
     return [];
   };
 
-
+export const isProductInCart = (productId: number) => {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  return cart.some((item: { id: number }) => item.id === productId);
+};
   
   
   export const addToCart = (item: CartItem): boolean => {
@@ -31,6 +36,8 @@ export const getCart = (): CartItem[] => {
       }
   
       localStorage.setItem("cart", JSON.stringify(cart));
+
+      dispatchLocalStorageUpdate("cart", cart);
       return true;
     } catch (error) {
       console.error("Error adding product to cart:", error);
@@ -38,19 +45,6 @@ export const getCart = (): CartItem[] => {
     }
   };
   
-//   export const removeFromCart = (id: number): boolean => {
-//     try {
-//       const cart = getCart();
-//       const updatedCart = cart.filter((cartItem) => cartItem.id !== id);
-  
-//       localStorage.setItem("cart", JSON.stringify(updatedCart));
-//       console.log("Product removed from cart:", id);
-//       return true;
-//     } catch (error) {
-//       console.error("Error removing product from cart:", error);
-//       return false;
-//     }
-//   };
 
 
   export const incrementQuantity = (id: number): boolean => {
@@ -106,7 +100,7 @@ export const getCart = (): CartItem[] => {
     return getCart().length;
   };
 
-  const dispatchLocalStorageUpdate = (key: string, value: any) => {
+  export const dispatchLocalStorageUpdate = (key: string, value: string) => {
     const event = new CustomEvent("localStorageUpdate", {
       detail: { key, value },
     });
