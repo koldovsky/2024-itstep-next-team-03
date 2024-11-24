@@ -13,7 +13,7 @@ interface NavSidebarProps {
 export default function NavSidebar({ params }: NavSidebarProps) {
   return (
     <div
-      className={`${params.navClassName} fixed overflow-y-auto top-0 left-0 flex-col h-full bg-[var(--background)] z-50 text-[var(--sidebar-font-clr)] border border-y-0 border-l-0 border-[var(--primary-clr)]`}
+      className={`${params.navClassName} fixed overflow-y-auto top-0 left-0 flex-col h-full bg-[var(--white-clr)] z-50 text-[var(--sidebar-font-clr)] border border-y-0 border-l-0 border-[var(--primary-clr)]`}
     >
       <div className="flex flex-col">
         <div>
@@ -22,7 +22,8 @@ export default function NavSidebar({ params }: NavSidebarProps) {
           />
           <ul className="flex flex-col gap-x-5">
             {navigationLinks.map((navigationLink) => (
-              <ListItem key={navigationLink.id}
+              <ListItem
+                key={navigationLink.id}
                 params={{
                   id: navigationLink.id,
                   linkName: navigationLink.linkName,
@@ -39,7 +40,8 @@ export default function NavSidebar({ params }: NavSidebarProps) {
           />
           <ul className="flex flex-col gap-x-5">
             {categories.map((category) => (
-              <ListItem key={category.id}
+              <ListItem
+                key={category.id}
                 params={{
                   id: category.id,
                   linkName: category.categoryName,
