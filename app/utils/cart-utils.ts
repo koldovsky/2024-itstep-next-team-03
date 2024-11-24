@@ -1,12 +1,6 @@
 "use client";
 
-export interface CartItem {
-    id: number;
-    title: string;
-    price?: number;
-    image: string;
-    quantity: number;
-  }
+import { CartItem } from "@/app/lib/definitions";
   
 export const getCart = (): CartItem[] => {
   if (typeof window !== "undefined") {

@@ -17,6 +17,7 @@ export type Product = {
   quantity_available: number | null;
   image_url: string;
   custom_parameters: string | null;
+  discount: number | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attributes: AttributeType[];
   description: string | null;
@@ -27,3 +28,12 @@ export type Subcategory = {
   subcategory_name: string;
   product_ids: number[];
 };
+
+export interface CartItem {
+  id: number;
+  title: string;
+  price?: number;
+  image: string;
+  quantity: number;
+  discount: number;
+}

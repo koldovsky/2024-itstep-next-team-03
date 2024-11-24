@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import Image from "next/image";
 import { useState } from "react";
 
@@ -36,7 +36,7 @@ export default function OrderProduct({ params }: OrderProductType) {
   return (
     <div className="flex flex-col gap-8 mt-8">
       <div className="flex flex-row gap-6 text-xs">
-        <div className="relative w-32 h-auto aspect-square lg:h-16 lg:w-28 xl:h-20 2xl:h-24">
+        <div className="relative w-32 h-auto aspect-square lg:h-28 lg:w-28 xl:h-20 2xl:h-24">
           <Image
             src={params.src}
             alt={params.alt}
@@ -45,7 +45,13 @@ export default function OrderProduct({ params }: OrderProductType) {
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col gap-2 mr-4 justify-between">
+        <div
+          className={`flex ${
+            params.type === "cart"
+              ? "flex-row items-start justify-between w-full"
+              : "flex-col"
+          } gap-2 mr-4 justify-between`}
+        >
           <div className="flex flex-col gap-2">
             <p className="font-bold">{params.title}</p>
             <p
@@ -57,10 +63,17 @@ export default function OrderProduct({ params }: OrderProductType) {
             >
               {params.customAttribute}
             </p>
+            {params.type === "cart" && (
+              <p className="text-[var(--input-text-clr)] underline decoration-dashed underline-offset-4">
+                Remove
+              </p>
+            )}
           </div>
 
-          {params.type === "checkout" ? (
-            <div className="flex flex-row items-center justify-between">
+          {params.type === "checkout" || params.type === "cart" ? (
+            <div
+              className={`h-full md:h-fit flex flex-col md:flex-row items-center justify-end md:justify-between gap-4 md:gap-8 lg:gap-14`}
+            >
               {params.discount === 0 ? (
                 <p>{params.price} ₴</p>
               ) : (
@@ -76,6 +89,11 @@ export default function OrderProduct({ params }: OrderProductType) {
                 <div>{quantity}</div>
                 <button onClick={handleIncrement}>+</button>
               </div>
+              {params.type === "cart" && (
+                <p className="hidden md:block">
+                  {params.amount * (params.price - params.discount)} ₴
+                </p>
+              )}
             </div>
           ) : (
             <div className="flex flex-col gap-2">
