@@ -15,6 +15,8 @@ type Product = {
   title: string;
   price: number;
   image: string;
+  discount: number | null;
+  quantity: number;
 };
 
 const Blog = ({ params }: { params: { blogId: string } }) => {
@@ -95,6 +97,8 @@ const Blog = ({ params }: { params: { blogId: string } }) => {
                         title={product.title}
                         price={product.price}
                         image={product.image}
+                        discount={product.discount || 0}
+                        quantity={1}
                       />
                     ))
                 ) : (
@@ -134,6 +138,8 @@ const Blog = ({ params }: { params: { blogId: string } }) => {
                       title={product.title}
                       price={product.price}
                       image={product.image}
+                      discount={0}
+                      quantity={1}
                     />
                   ))
               ) : (
@@ -176,6 +182,8 @@ const Blog = ({ params }: { params: { blogId: string } }) => {
                         title={product.title}
                         price={product.price}
                         image={product.image}
+                        discount={0}
+                        quantity={1}
                       />
                     ))
                 ) : (

@@ -1,12 +1,6 @@
 "use client";
 
-export interface CartItem {
-    id: number;
-    title: string;
-    price?: number;
-    image: string;
-    quantity: number;
-  }
+import { CartItem } from "@/app/lib/definitions";
   
 export const getCart = (): CartItem[] => {
   if (typeof window !== "undefined") {
@@ -37,7 +31,7 @@ export const isProductInCart = (productId: number) => {
   
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      dispatchLocalStorageUpdate("cart", cart);
+      dispatchLocalStorageUpdate("cart", JSON.stringify(cart));
       return true;
     } catch (error) {
       console.error("Error adding product to cart:", error);
@@ -56,7 +50,7 @@ export const isProductInCart = (productId: number) => {
         product.quantity += 1;
         localStorage.setItem("cart", JSON.stringify(cart));
         console.log("Product quantity incremented:", product);
-        dispatchLocalStorageUpdate("cart", cart);
+        dispatchLocalStorageUpdate("cart", JSON.stringify(cart));
 
         return true;
       } else {
@@ -79,7 +73,7 @@ export const isProductInCart = (productId: number) => {
           product.quantity -= 1;
           localStorage.setItem("cart", JSON.stringify(cart));
           console.log("Product quantity decremented:", product);
-          dispatchLocalStorageUpdate("cart", cart);
+          dispatchLocalStorageUpdate("cart", JSON.stringify(cart));
 
           return true;
         } else {

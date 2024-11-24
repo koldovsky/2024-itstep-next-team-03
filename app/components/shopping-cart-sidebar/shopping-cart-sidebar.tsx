@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import OrderProduct from "../order-sidebar/order-product-card/order-product-card";
 import Button from "../button/button";
 import ExpressCheckoutSidebar from "../express-checkout-sidebar/express-checkout-sidebar";
-import { CartItem, getCart } from "@/app/utils/cart-utils";
+import { getCart } from "@/app/utils/cart-utils";
+import { CartItem } from "@/app/lib/definitions";
 
 
 import { orderType } from "@/app/types/placeholder-order-type";
@@ -25,7 +26,7 @@ export default function ShoppingCartSidebar({
   const [isExpressCheckoutOpen, setIsExpressCheckoutOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [totalCost, setTotalCost] = useState<number>(0);
-
+  const [discount, setDiscount] = useState<number>(0);
   const fetchCart = () => {
     const cart = getCart();
     setCartItems(cart);
@@ -34,6 +35,11 @@ export default function ShoppingCartSidebar({
       (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
       0
     );
+    const discount = cart.reduce(
+      (sum, item) => sum + (item.discount || 0) * (item.quantity || 1),
+      0
+    );
+    setDiscount(discount);
     setTotalCost(total);
   };
 
@@ -59,11 +65,7 @@ export default function ShoppingCartSidebar({
 
   }, []);
 
-  // const handleStorageChange = (event: StorageEvent) => {
-  //   if (event.key === "cart") {
-  //     fetchCart();
-  //   }
-  // };
+
 
   useEffect(() => {
     const onStorageUpdate = () => fetchCart();
@@ -99,7 +101,7 @@ export default function ShoppingCartSidebar({
                 amount: product.quantity || 0,
                 type: params.type,
                 customAttribute: "",
-                discount: 0,
+                discount: product.discount,
               }}
             />
           ))}
@@ -113,7 +115,7 @@ export default function ShoppingCartSidebar({
             </div>
             <div className="flex flex-row justify-between">
               <p>Discount</p>
-              <p>-{params.order.discount} ₴</p>
+              <p>-{discount} ₴</p>
             </div>
             <div className="flex flex-row justify-between">
               <p>Shipping cost</p>

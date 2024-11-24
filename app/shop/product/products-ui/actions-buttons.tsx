@@ -20,6 +20,7 @@ const ActionsButtons = ({ product }: { product: Product }) => {
         price: product.price,
         image: product.image_url,
         quantity: 1,
+        discount: product.discount || 456,
       });
       setInCart(true);
     }
