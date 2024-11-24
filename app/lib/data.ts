@@ -132,3 +132,14 @@ export async function fetchManufacturers() {
     throw new Error("Failed to fetch manufacturers.");
   }
 }
+
+export async function fetchProductsCount() {
+  try {
+    const data = await sql`SELECT COUNT(*) as count FROM product`;
+    const productCount = data.rows[0]?.count;
+    return productCount;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to products count.");
+  }
+}

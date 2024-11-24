@@ -29,6 +29,7 @@ export default function ShoppingCart() {
           <OrderProduct
             key={product.id}
             params={{
+              id: product.id,
               src: product.image,
               alt: product.title,
               title: product.title,

@@ -103,6 +103,7 @@ export default function CardsGrid({ params }: CardsGridType) {
               title={product_name}
               price={price}
               image={image_url}
+              quantity={1}
             />
           )
         )

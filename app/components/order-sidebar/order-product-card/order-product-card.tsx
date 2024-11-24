@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ interface OrderProductType {
     price: number;
     discount: number;
     amount: number;
-    type: "checkout" | "complete";
+    type: "checkout" | "complete" | "cart";
   };
 }
 
