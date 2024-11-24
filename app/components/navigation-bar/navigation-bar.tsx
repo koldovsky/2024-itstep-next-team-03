@@ -100,6 +100,7 @@ export default function NavigationBar() {
         params={{
           type: "checkout",
           order: order,
+          isOpen: shoppingCartVisibility,
           onClick: () => setShoppingCartVisibility(false),
           className: `${shoppingCartVisibility ? "right-0" : "right-[-384px]"}`,
         }}

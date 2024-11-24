@@ -46,6 +46,7 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
             <OrderProduct
               key={product.id}
               params={{
+                id: product.id,
                 src: product.image,
                 alt: product.title,
                 title: product.title,

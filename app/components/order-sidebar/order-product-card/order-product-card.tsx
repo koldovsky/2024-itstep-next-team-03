@@ -1,7 +1,11 @@
 import Image from "next/image";
+import { useState } from "react";
+
+import { decrementQuantity, incrementQuantity } from "@/app/utils/cart-utils";
 
 interface OrderProductType {
   params: {
+    id: number;
     src: string;
     alt: string;
     title: string;
@@ -14,6 +18,20 @@ interface OrderProductType {
 }
 
 export default function OrderProduct({ params }: OrderProductType) {
+  const [quantity, setQuantity] = useState(params.amount);
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+      decrementQuantity(params.id);
+    }
+  };
+
+  const handleIncrement = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+    incrementQuantity(params.id);
+  };
+
   return (
     <div className="flex flex-col gap-8 mt-8">
       <div className="flex flex-row gap-6 text-xs">
@@ -66,9 +84,9 @@ export default function OrderProduct({ params }: OrderProductType) {
                 </div>
               )}
               <div className="h-6 w-fit text-xs px-2 border border-[var(--input-clr)] bg-white flex items-center gap-3 font-bold text-black">
-                <button>-</button>
-                <div>1</div>
-                <button>+</button>
+                <button onClick={handleDecrement}>-</button>
+                <div>{quantity}</div>
+                <button onClick={handleIncrement}>+</button>
               </div>
               {params.type === "cart" && (
                 <p className="hidden md:block">

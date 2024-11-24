@@ -6,15 +6,9 @@ import heartBlack from "@/public/icons/heart-black.svg";
 import ProductCardSwitch from "./product-card-switch";
 import Button from "@/app/components/button/button";
 import wishlistData from "@/app/lib/wishlist_data.json";
+import { CartItem } from "@/app/utils/cart-utils";
 
-interface ProductCardProps {
-  id: number;
-  title: string;
-  price?: number;
-  image: string;
-}
-
-const ProductCard = ({ id, title, price, image }: ProductCardProps) => {
+const ProductCard = ({ id, title, price, image }: CartItem) => {
   const [isInWishlist, setIsInWishlist] = useState(
     wishlistData.product_ids.includes(id)
   );
