@@ -7,13 +7,12 @@ import ExpressCheckoutSidebar from "../express-checkout-sidebar/express-checkout
 import { getCart } from "@/app/utils/cart-utils";
 import { CartItem } from "@/app/lib/definitions";
 
-
 import { orderType } from "@/app/types/placeholder-order-type";
 
 interface ShoppingCartSidebarType {
   params: {
     className: string;
-    type: "checkout" | "complete";
+    type: "cart" | "checkout" | "complete";
     order: orderType;
     isOpen: boolean;
     onClick: () => void;
@@ -27,6 +26,7 @@ export default function ShoppingCartSidebar({
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [totalCost, setTotalCost] = useState<number>(0);
   const [discount, setDiscount] = useState<number>(0);
+
   const fetchCart = () => {
     const cart = getCart();
     setCartItems(cart);
@@ -61,25 +61,20 @@ export default function ShoppingCartSidebar({
       const customEvent = event as CustomEvent;
       handleLocalStorageUpdate(customEvent);
     });
-
-
   }, []);
 
+  // useEffect(() => {
+  //   const onStorageUpdate = () => fetchCart();
+  //   window.addEventListener("storage", onStorageUpdate);
 
-
-  useEffect(() => {
-    const onStorageUpdate = () => fetchCart();
-    window.addEventListener("storage", onStorageUpdate);
-
-    return () => {
-      window.removeEventListener("storage", onStorageUpdate);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("storage", onStorageUpdate);
+  //   };
+  // }, []);
 
   const handleExpressCheckoutClick = () => {
     setIsExpressCheckoutOpen(true);
   };
-
 
   return (
     <>
@@ -99,7 +94,7 @@ export default function ShoppingCartSidebar({
                 title: product.title,
                 price: product.price || 0,
                 amount: product.quantity || 0,
-                type: params.type,
+                type: "checkout",
                 customAttribute: "",
                 discount: product.discount,
               }}
