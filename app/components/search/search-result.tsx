@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Product } from "@/app/lib/definitions";
 import Image from "next/image";
 

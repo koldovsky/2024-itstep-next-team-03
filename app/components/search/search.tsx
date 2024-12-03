@@ -17,7 +17,6 @@ type SearchProps = {
 export default function Search({ setSearchVisibility }: SearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
   const [debouncedQuery] = useDebounce(searchQuery, 300);
   const [isLoading, setIsLoading] = useState(false);
 

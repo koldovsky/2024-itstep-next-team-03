@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import {
-  fetchProducts,
   searchProductByName,
 } from "@/app/lib/data";
 
