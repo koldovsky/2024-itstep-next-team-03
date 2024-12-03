@@ -15,7 +15,7 @@ import { computeTotalPages } from "./utils/computeTotalPages";
 
 export default function Shop() {
   const [isShopSidebarVisible, setIsShopSidebarVisible] =
-      useState<boolean>(false);
+    useState<boolean>(false);
 
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(START_CURRENT_PAGE);
@@ -24,11 +24,11 @@ export default function Shop() {
   const searchParams = useSearchParams();
   const sortBy = searchParams.get("sort");
   const category = searchParams.get("category")
-      ? decodeURIComponent(searchParams.get("category")!)
-      : null;
+    ? decodeURIComponent(searchParams.get("category")!)
+    : null;
   const subcategory = searchParams.get("subcategory")
-      ? decodeURIComponent(searchParams.get("subcategory")!)
-      : null;
+    ? decodeURIComponent(searchParams.get("subcategory")!)
+    : null;
   const minPrice = searchParams.get("minPrice");
   const maxPrice = searchParams.get("maxPrice");
   const producer = searchParams.get("producer");
@@ -64,46 +64,46 @@ export default function Shop() {
   };
 
   const filteredAndSortedProducts = useMemo(
-      () => filterAndSortProducts(products, minPrice, maxPrice, sortBy, producer),
-      [products, minPrice, maxPrice, sortBy, producer]
+    () => filterAndSortProducts(products, minPrice, maxPrice, sortBy, producer),
+    [products, minPrice, maxPrice, sortBy, producer]
   );
 
   const numberOfPages = useMemo(
-      () => computeTotalPages(filteredAndSortedProducts),
-      [filteredAndSortedProducts]
+    () => computeTotalPages(filteredAndSortedProducts),
+    [filteredAndSortedProducts]
   );
 
   return (
-      <div className="w-full">
-        <BreadCrumbsBar params={{ url: "/shop" }} />
+    <div className="w-full">
+      <BreadCrumbsBar params={{ url: "/shop" }} />
 
-        <div className="flex flex-row justify-between items-center mb-10">
-          <PageHeading params={{ content: "Shop" }} />
-          <ProductSorting handleFilterIconClick={handleOpenShopSidebar} />
-        </div>
-
-        <div className="w-full flex items-start gap-5">
-          <ShopSidebar
-              isShopSidebarVisible={isShopSidebarVisible}
-              handleCloseShopSidebar={handleCloseShopSidebar}
-          />
-          <section className="flex-1">
-            <CardsGrid
-                params={{
-                  pageType: "shop",
-                  isLoading,
-                  products: filteredAndSortedProducts,
-                  currentPage,
-                }}
-            />
-          </section>
-        </div>
-
-        <Pagination
-            numberOfPages={numberOfPages}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-        />
+      <div className="flex flex-row justify-between items-center mb-10">
+        <PageHeading params={{ content: "Shop" }} />
+        <ProductSorting handleFilterIconClick={handleOpenShopSidebar} />
       </div>
+
+      <div className="w-full flex items-start gap-5">
+        <ShopSidebar
+          isShopSidebarVisible={isShopSidebarVisible}
+          handleCloseShopSidebar={handleCloseShopSidebar}
+        />
+        <section className="flex-1">
+          <CardsGrid
+            params={{
+              pageType: "shop",
+              isLoading,
+              products: filteredAndSortedProducts,
+              currentPage,
+            }}
+          />
+        </section>
+      </div>
+
+      <Pagination
+        numberOfPages={numberOfPages}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
+    </div>
   );
 }

@@ -9,17 +9,17 @@ import heart from "@/public/icons/heart.svg";
 import search from "@/public/icons/search.svg";
 import cart from "@/public/icons/cart.svg";
 import styles from "./navigation-bar.module.css";
-
+import close from "@/public/icons/close-icon.svg";
 import NavSidebar from "./nav-sidebar/nav-sidebar";
 import ShoppingCartSidebar from "../shopping-cart-sidebar/shopping-cart-sidebar";
-
+import Search from "../search/search";
 import { useState } from "react";
 import { order } from "@/app/lib/placeholder-order";
 
 export default function NavigationBar() {
   const [sidebarVisibility, setSidebarVisibility] = useState<boolean>(false);
-  const [shoppingCartVisibility, setShoppingCartVisibility] =
-    useState<boolean>(false);
+  const [shoppingCartVisibility, setShoppingCartVisibility] = useState<boolean>(false);
+  const [searchVisibility, setSearchVisibility] = useState<boolean>(false);
 
   return (
     <nav
@@ -74,8 +74,13 @@ export default function NavigationBar() {
           <Link href="/account/wishlist" className="h-6 w-6 hidden md:block">
             <Image src={heart} alt="Wishlist" />
           </Link>
-          <Link href="#" className="h-6 w-6">
-            <Image src={search} alt="Search" />
+          <Link
+            href="#"
+            className="h-6 w-6"
+            onClick={() => setSearchVisibility(!searchVisibility)}
+          >
+            {searchVisibility && <Image src={close} alt="Search" />}
+            {!searchVisibility && <Image src={search} alt="Search" />}
           </Link>
           <Link
             href="#"
@@ -105,6 +110,19 @@ export default function NavigationBar() {
           className: `${shoppingCartVisibility ? "right-0" : "right-[-384px]"}`,
         }}
       />
+
+      {searchVisibility && (
+        <>
+          <Search
+            searchVisibility={searchVisibility}
+            setSearchVisibility={setSearchVisibility}
+          />
+          <div
+            onClick={() => setSearchVisibility(false)}
+            className="w-full fixed top-0 left-0 h-full bottom-0 bg-black/50 right-0 z-30"
+          ></div>
+        </>
+      )}
 
       {shoppingCartVisibility && (
         <div
