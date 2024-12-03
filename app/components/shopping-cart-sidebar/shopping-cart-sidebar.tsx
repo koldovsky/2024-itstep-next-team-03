@@ -63,14 +63,7 @@ export default function ShoppingCartSidebar({
     });
   }, []);
 
-  // useEffect(() => {
-  //   const onStorageUpdate = () => fetchCart();
-  //   window.addEventListener("storage", onStorageUpdate);
 
-  //   return () => {
-  //     window.removeEventListener("storage", onStorageUpdate);
-  //   };
-  // }, []);
 
   const handleExpressCheckoutClick = () => {
     setIsExpressCheckoutOpen(true);

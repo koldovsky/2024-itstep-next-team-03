@@ -8,11 +8,9 @@ import { CartItem } from "@/app/lib/definitions";
 
 import Button from "@/app/components/button/button";
 
-import { order } from "@/app/lib/placeholder-order";
 
 export default function ShoppingCart() {
   const [totalCost, setTotalCost] = useState<number>(0);
-  const [discount, setDiscount] = useState<number>(0);
 
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
@@ -20,15 +18,16 @@ export default function ShoppingCart() {
     const cart = getCart();
     setCartItems(cart);
 
-    const total = cart.reduce(
-      (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
-      0
-    );
-    const discount = cart.reduce(
+    const discountSum = cart.reduce(
       (sum, item) => sum + (item.discount || 0) * (item.quantity || 1),
       0
     );
-    setDiscount(discount);
+
+    const total = cart.reduce(
+      (sum, item) => sum + (item.price || 0) * (item.quantity || 1) - discountSum,
+      0
+    );
+   
     setTotalCost(total);
   };
 
