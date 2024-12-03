@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const SearchResult = ({ product }: { product: Product }) => (
   <div key={product.product_id} className="border-b pb-6">
-    <Link href={`/shop/product/${product.product_id}`}>
+    <div>
       <h2 className="text-xl font-semibold mb-2">{product.product_name}</h2>
       <p className="text-sm text-gray-500 mb-2">#{product.product_id}</p>
-    </Link>
+    </div>
     <Image
       src={product.image_url}
       alt={product.product_name}

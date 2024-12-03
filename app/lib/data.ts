@@ -117,6 +117,18 @@ export async function fetchProductById(id: string) {
   }
 }
 
+export async function searchProductByName(name: string) {
+  try {
+    const data =
+      await sql<Product>`SELECT * FROM product WHERE product_name ILIKE ${`%${name}%`}`;
+    console.log(data.rows);
+    return data.rows;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch product.");
+  }
+}
+
 export async function fetchManufacturers() {
   try {
     const data =
