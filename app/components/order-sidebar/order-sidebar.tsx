@@ -1,18 +1,65 @@
+"use client";
+import { useState, useEffect } from "react";
 import OrderProduct from "./order-product-card/order-product-card";
 import OrderPromoCode from "./order-promo-code/order-promo-code";
 
-import { orderType } from "@/app/types/placeholder-order-type";
+import { CartItem } from "@/app/lib/definitions";
+import { getCart } from "@/app/utils/cart-utils";
 
 import Link from "next/link";
 
 interface OrderSidebarType {
   params: {
-    order: orderType;
     type: "checkout" | "complete";
   };
 }
 
 export default function OrderSidebar({ params }: OrderSidebarType) {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  const [discount, setDiscount] = useState<number>(0);
+  const [totalCost, setTotalCost] = useState<number>(0);
+  const [finalPrice, setFinalPrice] = useState<number>(0);
+
+  const fetchCart = () => {
+    const cart = getCart();
+    setCartItems(cart);
+
+    const totalCost = cart.reduce(
+      (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
+      0
+    );
+
+    const discount = cart.reduce(
+      (sum, item) => sum + (item.discount || 0) * (item.quantity || 1),
+      0
+    );
+
+    const finalPrice = totalCost - discount;
+
+    setDiscount(Number(discount.toFixed(2)));
+    setTotalCost(Number(totalCost.toFixed(2)));
+    setFinalPrice(Number(finalPrice.toFixed(2)));
+  };
+
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
+  const handleLocalStorageUpdate = (event: CustomEvent) => {
+    const { key } = event.detail;
+    if (key === "cart") {
+      fetchCart();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("localStorageUpdate", (event: Event) => {
+      const customEvent = event as CustomEvent;
+      handleLocalStorageUpdate(customEvent);
+    });
+  }, []);
+
   return (
     <div
       className={`h-full w-full flex-1 p-3
@@ -42,7 +89,7 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
           }
           "flex flex-col overflow-y-scroll orders-scrollbar h-48 gap-6"`}
         >
-          {params.order.products.map((product) => (
+          {cartItems.map((product) => (
             <OrderProduct
               key={product.id}
               params={{
@@ -50,10 +97,9 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
                 src: product.image,
                 alt: product.title,
                 title: product.title,
-                customAttribute: product.customAttribute,
                 price: product.price,
                 discount: product.discount,
-                amount: product.amount,
+                quantity: product.quantity,
                 type: params.type,
               }}
             />
@@ -64,11 +110,11 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
       <div className="flex flex-col p-5 gap-4 text-xs">
         <div className="flex flex-row justify-between">
           <p>Cost of goods</p>
-          <p className="font-bold">{params.order.totalCost} ₴</p>
+          <p className="font-bold">{totalCost} ₴</p>
         </div>
         <div className="flex flex-row justify-between">
           <p>Discount</p>
-          <p className="font-bold">-{params.order.discount} ₴</p>
+          <p className="font-bold">-{discount} ₴</p>
         </div>
         <div className="flex flex-row justify-between">
           <p>Shipping cost</p>
@@ -82,7 +128,7 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
 
       <div className="flex p-5 gap-4 h-fit items-start justify-between">
         <p>Total:</p>
-        <p className="font-bold">{params.order.finalPrice} ₴</p>
+        <p className="font-bold">{finalPrice} ₴</p>
       </div>
     </div>
   );

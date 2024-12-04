@@ -63,8 +63,6 @@ export default function ShoppingCartSidebar({
     });
   }, []);
 
-
-
   const handleExpressCheckoutClick = () => {
     setIsExpressCheckoutOpen(true);
   };
@@ -86,9 +84,8 @@ export default function ShoppingCartSidebar({
                 alt: product.title,
                 title: product.title,
                 price: product.price || 0,
-                amount: product.quantity || 0,
+                quantity: product.quantity || 0,
                 type: "checkout",
-                customAttribute: "",
                 discount: product.discount,
               }}
             />
@@ -99,11 +96,11 @@ export default function ShoppingCartSidebar({
           <div className="flex flex-col gap-4 text-xs font-bold">
             <div className="flex flex-row justify-between">
               <p>Cost of goods</p>
-              <p>{totalCost} €</p>
+              <p>{totalCost.toFixed(2)} €</p>
             </div>
             <div className="flex flex-row justify-between">
               <p>Discount</p>
-              <p>-{discount} ₴</p>
+              <p>-{discount.toFixed(2)} ₴</p>
             </div>
             <div className="flex flex-row justify-between">
               <p>Shipping cost</p>

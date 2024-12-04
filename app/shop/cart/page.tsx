@@ -8,7 +8,6 @@ import { CartItem } from "@/app/lib/definitions";
 
 import Button from "@/app/components/button/button";
 
-
 export default function ShoppingCart() {
   const [totalCost, setTotalCost] = useState<number>(0);
 
@@ -24,11 +23,12 @@ export default function ShoppingCart() {
     );
 
     const total = cart.reduce(
-      (sum, item) => sum + (item.price || 0) * (item.quantity || 1) - discountSum,
+      (sum, item) =>
+        sum + (item.price || 0) * (item.quantity || 1) - discountSum,
       0
     );
-   
-    setTotalCost(total);
+
+    setTotalCost(Number(total.toFixed(2)));
   };
 
   useEffect(() => {
@@ -76,9 +76,8 @@ export default function ShoppingCart() {
               alt: product.title,
               title: product.title,
               price: product.price || 0,
-              amount: product.quantity || 0,
+              quantity: product.quantity || 0,
               type: "cart",
-              customAttribute: "",
               discount: product.discount,
             }}
           />
