@@ -1,3 +1,4 @@
+
 import { sql } from "@vercel/postgres";
 import { Category, Product, Subcategory } from "./definitions";
 import {
@@ -116,6 +117,18 @@ export async function fetchProductById(id: string) {
   }
 }
 
+export async function searchProductByName(name: string) {
+  try {
+    const data =
+      await sql<Product>`SELECT * FROM product WHERE product_name ILIKE ${`%${name}%`}`;
+    console.log(data.rows);
+    return data.rows;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch product.");
+  }
+}
+
 export async function fetchManufacturers() {
   try {
     const data =
@@ -129,5 +142,16 @@ export async function fetchManufacturers() {
   } catch (error) {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch manufacturers.");
+  }
+}
+
+export async function fetchProductsCount() {
+  try {
+    const data = await sql`SELECT COUNT(*) as count FROM product`;
+    const productCount = data.rows[0]?.count;
+    return productCount;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to products count.");
   }
 }

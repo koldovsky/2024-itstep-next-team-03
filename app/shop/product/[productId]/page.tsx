@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import ActionsButtons from "@/app/shop/product/products-ui/actions-buttons";
 
-import ProductCounter from "@/app/shop/product/products-ui/product-counter";
-import Button from "@/app/components/button/button";
-import Wishlist from "@/app/components/wishlist/wishlist";
+
 import ProductFeedback from "@/app/shop/product/products-ui/feedback/product-feedback";
 import CharacteristicList from "@/app/shop/product/products-ui/characteristic-list/characteristic-list";
 import BreadCrumbsBar from "@/app/components/bread-crumbs-bar/bread-crumbs-bar";
@@ -25,7 +24,6 @@ const Product = async ({ params }: { params: { productId: string } }) => {
   }
 
   const {
-    product_id,
     category_id,
     product_name,
     image_url,
@@ -74,17 +72,7 @@ const Product = async ({ params }: { params: { productId: string } }) => {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex gap-4 items-center mb-4 flex-wrap min-h-14">
-                <ProductCounter />
-                <Button
-                  params={{
-                    content: "In the cart",
-                    url: `/shop/product/${product_id}`,
-                    className: "secondary-btn h-14",
-                  }}
-                />
-                <Wishlist item={product} />
-              </div>
+              <ActionsButtons product={product} />
 
               {/* Characteristics Section */}
               <div className="w-full mb-10">

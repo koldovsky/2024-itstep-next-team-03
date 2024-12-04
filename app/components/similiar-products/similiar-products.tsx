@@ -25,6 +25,8 @@ const RelatedProducts = async ({ categoryId }: RelatedProductsProps) => {
             title={product.product_name}
             image={product.image_url}
             price={product.price}
+            discount={0}
+            quantity={1}
           />
         ))}
       </div>

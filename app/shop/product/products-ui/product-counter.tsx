@@ -1,22 +1,25 @@
 "use client";
-import React, { useState, ChangeEvent } from "react";
+import React, { ChangeEvent } from "react";
 
-const ProductCounter = () => {
-  const [countValue, setCountValue] = useState<number>(2);
+interface ProductCounterProps {
+  quantity: number;
+  setQuantity: (newQuantity: number) => void;
+}
 
+const ProductCounter = ({ quantity, setQuantity }: ProductCounterProps) => {
   const incrementCount = () => {
-    setCountValue((prev) => prev + 1);
+    setQuantity(quantity + 1);
   };
 
   const decrementCount = () => {
-    if (countValue === 1) return;
-    setCountValue((prev) => prev - 1);
+    if (quantity === 1) return;
+    setQuantity(quantity - 1);
   };
 
   const handleCountInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     if (+value < 0) return;
-    setCountValue(+value);
+    setQuantity(+value);
   };
 
   return (
@@ -26,7 +29,7 @@ const ProductCounter = () => {
       </button>
 
       <input
-        value={countValue}
+        value={quantity}
         onChange={handleCountInputChange}
         className="w-4 outline-none border-0 text-center"
       />

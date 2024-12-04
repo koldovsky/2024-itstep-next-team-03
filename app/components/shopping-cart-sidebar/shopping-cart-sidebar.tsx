@@ -4,14 +4,15 @@ import React, { useState, useEffect } from "react";
 import OrderProduct from "../order-sidebar/order-product-card/order-product-card";
 import Button from "../button/button";
 import ExpressCheckoutSidebar from "../express-checkout-sidebar/express-checkout-sidebar";
-import { CartItem, getCart } from "@/app/utils/cart-utils";
+import { getCart } from "@/app/utils/cart-utils";
+import { CartItem } from "@/app/lib/definitions";
 
 import { orderType } from "@/app/types/placeholder-order-type";
 
 interface ShoppingCartSidebarType {
   params: {
     className: string;
-    type: "checkout" | "complete";
+    type: "cart" | "checkout" | "complete";
     order: orderType;
     isOpen: boolean;
     onClick: () => void;
@@ -24,6 +25,7 @@ export default function ShoppingCartSidebar({
   const [isExpressCheckoutOpen, setIsExpressCheckoutOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [totalCost, setTotalCost] = useState<number>(0);
+  const [discount, setDiscount] = useState<number>(0);
 
   const fetchCart = () => {
     const cart = getCart();
@@ -33,6 +35,11 @@ export default function ShoppingCartSidebar({
       (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
       0
     );
+    const discount = cart.reduce(
+      (sum, item) => sum + (item.discount || 0) * (item.quantity || 1),
+      0
+    );
+    setDiscount(discount);
     setTotalCost(total);
   };
 
@@ -43,7 +50,7 @@ export default function ShoppingCartSidebar({
   }, [params.isOpen]);
 
   const handleLocalStorageUpdate = (event: CustomEvent) => {
-    const { key, value } = event.detail;
+    const { key } = event.detail;
     if (key === "cart") {
       fetchCart();
     }
@@ -54,29 +61,11 @@ export default function ShoppingCartSidebar({
       const customEvent = event as CustomEvent;
       handleLocalStorageUpdate(customEvent);
     });
-
-
-  }, []);
-
-  const handleStorageChange = (event: StorageEvent) => {
-    if (event.key === "cart") {
-      fetchCart();
-    }
-  };
-
-  useEffect(() => {
-    const onStorageUpdate = () => fetchCart();
-    window.addEventListener("storage", onStorageUpdate);
-
-    return () => {
-      window.removeEventListener("storage", onStorageUpdate);
-    };
   }, []);
 
   const handleExpressCheckoutClick = () => {
     setIsExpressCheckoutOpen(true);
   };
-
 
   return (
     <>
@@ -95,10 +84,9 @@ export default function ShoppingCartSidebar({
                 alt: product.title,
                 title: product.title,
                 price: product.price || 0,
-                amount: product.quantity || 0,
-                type: params.type,
-                customAttribute: "",
-                discount: 0,
+                quantity: product.quantity || 0,
+                type: "checkout",
+                discount: product.discount,
               }}
             />
           ))}
@@ -108,11 +96,11 @@ export default function ShoppingCartSidebar({
           <div className="flex flex-col gap-4 text-xs font-bold">
             <div className="flex flex-row justify-between">
               <p>Cost of goods</p>
-              <p>{totalCost} €</p>
+              <p>{totalCost.toFixed(2)} €</p>
             </div>
             <div className="flex flex-row justify-between">
               <p>Discount</p>
-              <p>-{params.order.discount} ₴</p>
+              <p>-{discount.toFixed(2)} ₴</p>
             </div>
             <div className="flex flex-row justify-between">
               <p>Shipping cost</p>
