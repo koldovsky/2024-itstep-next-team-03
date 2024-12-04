@@ -76,9 +76,8 @@ export default function ShoppingCart() {
               alt: product.title,
               title: product.title,
               price: product.price || 0,
-              amount: product.quantity || 0,
+              quantity: product.quantity || 0,
               type: "cart",
-              customAttribute: "",
               discount: product.discount,
             }}
           />

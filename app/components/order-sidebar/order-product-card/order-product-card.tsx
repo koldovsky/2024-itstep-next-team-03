@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { decrementQuantity, incrementQuantity } from "@/app/utils/cart-utils";
 
@@ -10,28 +10,34 @@ interface OrderProductType {
     src: string;
     alt: string;
     title: string;
-    customAttribute: string;
-    price: number;
+    price: number | undefined;
     discount: number;
-    amount: number;
+    quantity: number;
     type: "checkout" | "complete" | "cart";
   };
 }
 
 export default function OrderProduct({ params }: OrderProductType) {
-  const [quantity, setQuantity] = useState(params.amount);
+  const [quantity, setQuantity] = useState(params.quantity);
+  const [productTotalCost, setProductTotalCost] = useState((quantity * ((params.price || 0) - params.discount)).toFixed(2));
 
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
       decrementQuantity(params.id);
+      setProductTotalCost((quantity * ((params.price || 0) - params.discount)).toFixed(2));
     }
   };
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
     incrementQuantity(params.id);
+    setProductTotalCost((quantity * ((params.price || 0) - params.discount)).toFixed(2));
   };
+
+  useEffect(() => {
+    setProductTotalCost((quantity * ((params.price || 0) - params.discount)).toFixed(2));
+  }, [quantity, params.price, params.discount]);
 
   return (
     <div className="flex flex-col gap-8 mt-8">
@@ -61,7 +67,6 @@ export default function OrderProduct({ params }: OrderProductType) {
                   : "text-[var(--input-text-clr)] opacity-70"
               }
             >
-              {params.customAttribute}
             </p>
             {params.type === "cart" && (
               <p className="text-[var(--input-text-clr)] underline decoration-dashed underline-offset-4">
@@ -75,10 +80,13 @@ export default function OrderProduct({ params }: OrderProductType) {
               className={`h-full md:h-fit flex flex-col md:flex-row items-center justify-end md:justify-between gap-4 md:gap-8 lg:gap-14`}
             >
               {params.discount === 0 ? (
-                <p>{params.price} ₴</p>
+                <div>
+                  <p>{params.price} ₴</p>
+                  <p className="font-bold">{productTotalCost} ₴</p>
+                </div>
               ) : (
                 <div className="flex flex-col gap-1">
-                  <p>{params.price - params.discount} ₴</p>
+                  <p>{(params.price || 0) - params.discount} ₴</p>
                   <p className="line-through text-[var(--input-text-clr)] opacity-70">
                     {params.price} ₴
                   </p>
@@ -91,7 +99,7 @@ export default function OrderProduct({ params }: OrderProductType) {
               </div>
               {params.type === "cart" && (
                 <p className="hidden md:block">
-                  {params.amount * (params.price - params.discount)} ₴
+                  {params.quantity * ((params.price || 0) - params.discount)} ₴
                 </p>
               )}
             </div>
@@ -100,17 +108,17 @@ export default function OrderProduct({ params }: OrderProductType) {
               <div className="flex flex-row gap-1">
                 <p className="font-bold">Price:</p>
                 <p className="text-[var(--input-text-clr)] opacity-70">
-                  {params.price - params.discount} ₴
+                  {(params.price || 0) - params.discount} ₴
                 </p>
               </div>
               <div className="flex flex-row gap-1">
                 <p className="font-bold">Quantity:</p>
                 <p className="text-[var(--input-text-clr)] opacity-70">
-                  {params.amount} pcs
+                  {params.quantity} pcs
                 </p>
               </div>
               <p className="font-bold">
-                {params.amount * (params.price - params.discount)} ₴
+                {params.quantity * ((params.price || 0) - params.discount)} ₴
               </p>
             </div>
           )}

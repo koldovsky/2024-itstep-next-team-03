@@ -6,7 +6,6 @@ import CheckoutForm from "./checkout-form/checkout-form";
 import { profileData } from "@/app/lib/placeholder-profile-data";
 
 import Link from "next/link";
-import { order } from "@/app/lib/placeholder-order";
 
 export default function CheckoutPage() {
   return (
@@ -28,7 +27,7 @@ export default function CheckoutPage() {
       </div>
       <div className="flex flex-col lg:flex-row w-full gap-6 xl:gap-14">
         <CheckoutForm params={{ profileData }} />
-        <OrderSidebar params={{ order, type: "checkout" }} />
+        <OrderSidebar params={{ type: "checkout" }} />
       </div>
     </div>
   );
