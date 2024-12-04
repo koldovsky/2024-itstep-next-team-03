@@ -19,24 +19,30 @@ interface OrderProductType {
 
 export default function OrderProduct({ params }: OrderProductType) {
   const [quantity, setQuantity] = useState(params.quantity);
-  const [productTotalCost, setProductTotalCost] = useState((quantity * ((params.price || 0) - params.discount)).toFixed(2));
+  const [productTotalCost, setProductTotalCost] = useState<number>(0);
 
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
       decrementQuantity(params.id);
-      setProductTotalCost((quantity * ((params.price || 0) - params.discount)).toFixed(2));
+      setProductTotalCost(
+        Number((quantity * ((params.price || 0) - params.discount)).toFixed(2))
+      );
     }
   };
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
     incrementQuantity(params.id);
-    setProductTotalCost((quantity * ((params.price || 0) - params.discount)).toFixed(2));
+    setProductTotalCost(
+      Number((quantity * ((params.price || 0) - params.discount)).toFixed(2))
+    );
   };
 
   useEffect(() => {
-    setProductTotalCost((quantity * ((params.price || 0) - params.discount)).toFixed(2));
+    setProductTotalCost(
+      Number((quantity * ((params.price || 0) - params.discount)).toFixed(2))
+    );
   }, [quantity, params.price, params.discount]);
 
   return (
@@ -66,8 +72,7 @@ export default function OrderProduct({ params }: OrderProductType) {
                   ? ""
                   : "text-[var(--input-text-clr)] opacity-70"
               }
-            >
-            </p>
+            ></p>
             {params.type === "cart" && (
               <p className="text-[var(--input-text-clr)] underline decoration-dashed underline-offset-4">
                 Remove
@@ -81,7 +86,7 @@ export default function OrderProduct({ params }: OrderProductType) {
             >
               {params.discount === 0 ? (
                 <div>
-                  <p>{params.price} ₴</p>
+                  <p>{params.price} ₴ / pcs</p>
                   <p className="font-bold">{productTotalCost} ₴</p>
                 </div>
               ) : (
@@ -98,9 +103,7 @@ export default function OrderProduct({ params }: OrderProductType) {
                 <button onClick={handleIncrement}>+</button>
               </div>
               {params.type === "cart" && (
-                <p className="hidden md:block">
-                  {params.quantity * ((params.price || 0) - params.discount)} ₴
-                </p>
+                <p className="hidden md:block">{productTotalCost} ₴</p>
               )}
             </div>
           ) : (

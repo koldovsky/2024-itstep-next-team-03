@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import OrderProduct from "./order-product-card/order-product-card";
 import OrderPromoCode from "./order-promo-code/order-promo-code";
@@ -15,7 +15,6 @@ interface OrderSidebarType {
 }
 
 export default function OrderSidebar({ params }: OrderSidebarType) {
-
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const [discount, setDiscount] = useState<number>(0);
@@ -27,22 +26,38 @@ export default function OrderSidebar({ params }: OrderSidebarType) {
     setCartItems(cart);
 
     const totalCost = cart.reduce(
-      (sum, item) => sum + (item.price || 0) * (item.quantity || 1), 0
+      (sum, item) => sum + (item.price || 0) * (item.quantity || 1),
+      0
     );
-    
+
     const discount = cart.reduce(
-      (sum, item) => sum + (item.discount || 0) * (item.quantity || 1), 0
+      (sum, item) => sum + (item.discount || 0) * (item.quantity || 1),
+      0
     );
 
     const finalPrice = totalCost - discount;
 
-    setDiscount(discount);
-    setTotalCost(totalCost);
-    setFinalPrice(finalPrice);
-  }
+    setDiscount(Number(discount.toFixed(2)));
+    setTotalCost(Number(totalCost.toFixed(2)));
+    setFinalPrice(Number(finalPrice.toFixed(2)));
+  };
 
   useEffect(() => {
     fetchCart();
+  }, []);
+
+  const handleLocalStorageUpdate = (event: CustomEvent) => {
+    const { key } = event.detail;
+    if (key === "cart") {
+      fetchCart();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("localStorageUpdate", (event: Event) => {
+      const customEvent = event as CustomEvent;
+      handleLocalStorageUpdate(customEvent);
+    });
   }, []);
 
   return (

@@ -58,7 +58,7 @@ const ProductCard = ({ id, title, price, image }: CartItem) => {
       <div className={`text-gray-700 pt-3`}>
         <h1 className={`flex justify-between gap-4`}>
           <span className="text-base">{title}</span>
-          <span className="text-base font-bold text-center">{price}€</span>
+          <span className="text-base font-bold text-center">{price} ₴</span>
         </h1>
         <div className="flex flex-col justify-between mt-4 gap-4">
           <ProductCardSwitch />
