@@ -1,8 +1,10 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
-import { decrementQuantity, incrementQuantity } from "@/app/utils/cart-utils";
+import Image from "next/image";
+import TrashCan from "../../../../public/icons/trash-can.svg";
+
+import { decrementQuantity, incrementQuantity, removeFromCart } from "@/app/utils/cart-utils";
 
 interface OrderProductType {
   params: {
@@ -37,6 +39,10 @@ export default function OrderProduct({ params }: OrderProductType) {
     setProductTotalCost(
       Number((quantity * ((params.price || 0) - params.discount)).toFixed(2))
     );
+  };
+
+  const handleRemove = () => {
+    removeFromCart(params.id);
   };
 
   useEffect(() => {
@@ -79,6 +85,28 @@ export default function OrderProduct({ params }: OrderProductType) {
               </p>
             )}
           </div>
+          <div className="flex flex-col gap-2 mr-4 justify-between flex-grow">
+            <div className="flex flex-col gap-2">
+              <p className="font-bold">{params.title}</p>
+              <p
+                  className={
+                    params.type === "checkout"
+                        ? ""
+                        : "text-[var(--input-text-clr)] opacity-70"
+                  }
+              >
+                {params.customAttribute}
+              </p>
+            </div>
+
+
+            <div className="flex flex-col gap-1">
+              <p>
+                {params.discount === 0
+                    ? `${params.price} ₴`
+                    : `${params.price - params.discount} ₴`}
+              </p>
+              {params.discount !== 0 && (
 
           {params.type === "checkout" || params.type === "cart" ? (
             <div
@@ -92,11 +120,28 @@ export default function OrderProduct({ params }: OrderProductType) {
               ) : (
                 <div className="flex flex-col gap-1">
                   <p>{(params.price || 0) - params.discount} ₴</p>
+
                   <p className="line-through text-[var(--input-text-clr)] opacity-70">
                     {params.price} ₴
                   </p>
-                </div>
               )}
+
+              {params.type === "checkout" && (
+                  <div className="h-6 w-fit text-xs px-2 border border-[var(--input-clr)] bg-white flex items-center gap-3 font-bold text-black">
+                    <button onClick={handleDecrement}>-</button>
+                    <div>{quantity}</div>
+                    <button onClick={handleIncrement}>+</button>
+                  </div>
+              )}
+              {params.type === "complete" && (
+                  <div className="flex flex-row gap-1">
+                    <p className="font-bold">Quantity:</p>
+                    <p className="text-[var(--input-text-clr)] opacity-70">
+                      {params.amount} pcs
+                    </p>
+                  </div>
+              )}
+
               <div className="h-6 w-fit text-xs px-2 border border-[var(--input-clr)] bg-white flex items-center gap-3 font-bold text-black">
                 <button onClick={handleDecrement}>-</button>
                 <div>{quantity}</div>
@@ -123,17 +168,27 @@ export default function OrderProduct({ params }: OrderProductType) {
               <p className="font-bold">
                 {params.quantity * ((params.price || 0) - params.discount)} ₴
               </p>
-            </div>
-          )}
 
+            </div>
+          </div>
           {params.type === "checkout" && (
-            <p className="text-[var(--input-text-clr)] underline decoration-dashed underline-offset-4">
-              Remove
-            </p>
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 mr-4">
+                <div
+                    onClick={handleRemove}
+                    className="cursor-pointer transition-transform duration-200 flex items-center justify-center"
+                >
+                  <Image
+                      src={TrashCan}
+                      alt="Remove"
+                      width={24}
+                      height={24}
+                      className="opacity-80 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </div>
+              </div>
           )}
         </div>
+        <hr />
       </div>
-      <hr />
-    </div>
   );
 }

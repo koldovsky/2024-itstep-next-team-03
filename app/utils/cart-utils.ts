@@ -54,11 +54,26 @@ export const incrementQuantity = (id: number): boolean => {
     } else {
       console.error("Product not found in cart.");
       return false;
-    }
-  } catch (error) {
+    } catch (error) {
     console.error("Error incrementing product quantity:", error);
+
     return false;
-  }
+
+  };
+  
+
+  
+export const removeFromCart = (id: number): boolean => {
+  try {
+    const cart = getCart();
+    const updatedCart = cart.filter((cartItem) => cartItem.id !== id);
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    dispatchLocalStorageUpdate("cart", updatedCart); // Додаємо подію
+    console.log("Product removed from cart:", id);
+    return true;
+  } catch (error) {
+    console.error("Error removing product from cart:", error);
 };
 
 export const decrementQuantity = (id: number): boolean => {
