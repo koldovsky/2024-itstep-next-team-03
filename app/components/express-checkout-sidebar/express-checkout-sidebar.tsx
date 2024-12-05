@@ -96,7 +96,7 @@ const ExpressCheckoutSidebar: FC<ExpressCheckoutSidebarProps> = ({ isOpen, onClo
                 <hr className="my-3"/>
                 <div className="flex justify-between font-bold text-gray-700 mt-2">
                     <p>Subtotal</p>
-                    <p>{orderTotal} ₴</p>
+                    <p>{orderTotal.toFixed(2)} ₴</p>
                 </div>
                 <button
                     onClick={handleSendClick}

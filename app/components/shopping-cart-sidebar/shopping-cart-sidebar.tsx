@@ -138,9 +138,9 @@ export default function ShoppingCartSidebar({
         </div>
       </div>
       <ExpressCheckoutSidebar
-        isOpen={isExpressCheckoutOpen}
-        onClose={() => setIsExpressCheckoutOpen(false)}
-        orderTotal={params.order.finalPrice}
+          isOpen={isExpressCheckoutOpen}
+          onClose={() => setIsExpressCheckoutOpen(false)}
+          orderTotal={totalCost}
       />
     </>
   );
