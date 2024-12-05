@@ -20,8 +20,6 @@ export default function Search({ setSearchVisibility }: SearchProps) {
   const [debouncedQuery] = useDebounce(searchQuery, 300);
   const [isLoading, setIsLoading] = useState(false);
 
-
-
   const fetchProducts = useCallback(async (query: string) => {
     if (query.trim() === "") {
       setFilteredProducts([]);
@@ -33,7 +31,7 @@ export default function Search({ setSearchVisibility }: SearchProps) {
       const url = `/api/search/${encodeURIComponent(query)}`;
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error('Failed to fetch products');
+        throw new Error("Failed to fetch products");
       }
       const data = await response.json();
       setFilteredProducts(data);
@@ -52,7 +50,6 @@ export default function Search({ setSearchVisibility }: SearchProps) {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
-
 
   return (
     <div className="max-w-2xl z-50 relative mx-auto">
@@ -107,4 +104,3 @@ export default function Search({ setSearchVisibility }: SearchProps) {
     </div>
   );
 }
-

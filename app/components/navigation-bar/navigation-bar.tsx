@@ -18,7 +18,8 @@ import { order } from "@/app/lib/placeholder-order";
 
 export default function NavigationBar() {
   const [sidebarVisibility, setSidebarVisibility] = useState<boolean>(false);
-  const [shoppingCartVisibility, setShoppingCartVisibility] = useState<boolean>(false);
+  const [shoppingCartVisibility, setShoppingCartVisibility] =
+    useState<boolean>(false);
   const [searchVisibility, setSearchVisibility] = useState<boolean>(false);
 
   return (

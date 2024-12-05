@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
-import {
-  searchProductByName,
-} from "@/app/lib/data";
+import { searchProductByName } from "@/app/lib/data";
 
 export async function GET(
   request: Request,
